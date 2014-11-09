@@ -57,6 +57,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FindYourUniversity.Data.Common\FindYourUniversity.Data.Common.csproj">
+      <Project>{556a3853-0bab-4d8d-a89c-0307dd79f69c}</Project>
+      <Name>FindYourUniversity.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FindYourUniversity.Data.Models\FindYourUniversity.Data.Models.csproj">
       <Project>{61cb5ebd-2710-469d-b90e-911a911ec19a}</Project>
       <Name>FindYourUniversity.Data.Models</Name>
