@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FindYourUniversity.Web.Models;
+using FindYourUniversity.Data.Models;
 
 namespace FindYourUniversity.Web.Controllers
 {

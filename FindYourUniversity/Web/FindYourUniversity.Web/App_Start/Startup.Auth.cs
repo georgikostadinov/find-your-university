@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using FindYourUniversity.Web.Models;
+using FindYourUniversity.Data;
+using FindYourUniversity.Data.Models;
 
 namespace FindYourUniversity.Web
 {

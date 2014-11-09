@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using FindYourUniversity.Web.Models;
+using FindYourUniversity.Data.Models;
+using FindYourUniversity.Data;
 
 namespace FindYourUniversity.Web
 {
