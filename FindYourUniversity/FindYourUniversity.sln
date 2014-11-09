@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourUniversity.Data.Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourUniversity.Web", "Web\FindYourUniversity.Web\FindYourUniversity.Web.csproj", "{96C78593-F914-4F4A-AFA7-DDF4CD59A1F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourUniversity.Data.Common", "Data\FindYourUniversity.Data.Common\FindYourUniversity.Data.Common.csproj", "{556A3853-0BAB-4D8D-A89C-0307DD79F69C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{96C78593-F914-4F4A-AFA7-DDF4CD59A1F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96C78593-F914-4F4A-AFA7-DDF4CD59A1F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96C78593-F914-4F4A-AFA7-DDF4CD59A1F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{556A3853-0BAB-4D8D-A89C-0307DD79F69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{556A3853-0BAB-4D8D-A89C-0307DD79F69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{556A3853-0BAB-4D8D-A89C-0307DD79F69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{556A3853-0BAB-4D8D-A89C-0307DD79F69C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 		{8AC51F78-5FA2-4B37-B28E-6140A13BF70C} = {0BA7530A-3481-4AC6-995C-E8F863911CFA}
 		{61CB5EBD-2710-469D-B90E-911A911EC19A} = {0BA7530A-3481-4AC6-995C-E8F863911CFA}
 		{96C78593-F914-4F4A-AFA7-DDF4CD59A1F0} = {D3CBA176-4E08-48F3-BC70-F084EF92024D}
+		{556A3853-0BAB-4D8D-A89C-0307DD79F69C} = {0BA7530A-3481-4AC6-995C-E8F863911CFA}
 	EndGlobalSection
 EndGlobal
