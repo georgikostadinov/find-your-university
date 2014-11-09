@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourUniversity.Web", "W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourUniversity.Data.Common", "Data\FindYourUniversity.Data.Common\FindYourUniversity.Data.Common.csproj", "{556A3853-0BAB-4D8D-A89C-0307DD79F69C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourUniversity.Web.Infrastructure", "Web\FindYourUniversity.Web.Infrastructure\FindYourUniversity.Web.Infrastructure.csproj", "{14CCD972-C398-402D-9D71-70FC4AB499D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{556A3853-0BAB-4D8D-A89C-0307DD79F69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{556A3853-0BAB-4D8D-A89C-0307DD79F69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{556A3853-0BAB-4D8D-A89C-0307DD79F69C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14CCD972-C398-402D-9D71-70FC4AB499D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14CCD972-C398-402D-9D71-70FC4AB499D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14CCD972-C398-402D-9D71-70FC4AB499D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14CCD972-C398-402D-9D71-70FC4AB499D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +62,6 @@ Global
 		{61CB5EBD-2710-469D-B90E-911A911EC19A} = {0BA7530A-3481-4AC6-995C-E8F863911CFA}
 		{96C78593-F914-4F4A-AFA7-DDF4CD59A1F0} = {D3CBA176-4E08-48F3-BC70-F084EF92024D}
 		{556A3853-0BAB-4D8D-A89C-0307DD79F69C} = {0BA7530A-3481-4AC6-995C-E8F863911CFA}
+		{14CCD972-C398-402D-9D71-70FC4AB499D6} = {D3CBA176-4E08-48F3-BC70-F084EF92024D}
 	EndGlobalSection
 EndGlobal

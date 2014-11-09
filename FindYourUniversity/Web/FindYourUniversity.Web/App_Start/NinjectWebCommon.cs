@@ -10,6 +10,9 @@ namespace FindYourUniversity.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using System.Data.Entity;
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Data.Common.Repository;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +64,9 @@ namespace FindYourUniversity.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<DbContext>().To<ApplicationDbContext>();
+            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
         }        
     }
 }
