@@ -20,8 +20,8 @@ namespace FindYourUniversity.Web.Controllers
 
         public ActionResult Index()
         {
-            var userViewModels = this.users.All().Where(u => u.IsDeleted == false).Project().To<UserViewModel>().ToList();
-            return View(userViewModels);
+           // var userViewModels = this.users.All().Where(u => u.IsDeleted == false).Project().To<UserViewModel>().ToList();
+            return View();
         }
 
         public ActionResult About()
