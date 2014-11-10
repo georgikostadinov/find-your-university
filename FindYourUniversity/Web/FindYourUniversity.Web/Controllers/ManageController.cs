@@ -48,7 +48,7 @@ namespace FindYourUniversity.Web.Controllers
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
-
+            
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),

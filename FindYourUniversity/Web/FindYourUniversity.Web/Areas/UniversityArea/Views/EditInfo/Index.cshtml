@@ -1,0 +1,19 @@
+﻿@model FindYourUniversity.Web.Areas.UniversityArea.ViewModels.UniversityViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Update","EditInfo",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.HiddenFor(u => u.Id)
+        
+    @Html.LabelFor(u=>u.UniversityInfo.Name)
+    @Html.EditorFor(u=>u.UniversityInfo.Name)
+    
+    @Html.EditorForModel()
+
+    <input type="submit" name="name" value="Save" />
+}
+

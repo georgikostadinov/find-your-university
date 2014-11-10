@@ -11,7 +11,7 @@
     {
         public DeletableEntityRepository(DbContext context)
             : base(context)
-        {
+        {   
         }
 
         public override IQueryable<T> All()

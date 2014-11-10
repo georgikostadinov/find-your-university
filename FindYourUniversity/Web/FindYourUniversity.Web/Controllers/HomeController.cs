@@ -12,16 +12,16 @@ namespace FindYourUniversity.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private IRepository<ApplicationUser> users;
-        public HomeController(IRepository<ApplicationUser> users)
+        private IRepository<University> users;
+        public HomeController(IRepository<University> users)
         {
             this.users = users;
         }
 
         public ActionResult Index()
         {
-           // var userViewModels = this.users.All().Where(u => u.IsDeleted == false).Project().To<UserViewModel>().ToList();
-            return View();
+            var userViewModels = this.users.All().Where(u => u.IsDeleted == false).Project().To<UniversityViewModel>().ToList();
+            return View(userViewModels);
         }
 
         public ActionResult About()

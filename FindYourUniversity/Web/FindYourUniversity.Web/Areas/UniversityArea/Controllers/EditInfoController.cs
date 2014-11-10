@@ -8,23 +8,41 @@ using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
 using AutoMapper;
 using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
+using FindYourUniversity.Data.Common.Repository;
+using FindYourUniversity.Data;
 
 namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 {
     public class EditInfoController : BaseController
     {
+        private ApplicationDbContext db;
+        public EditInfoController(ApplicationDbContext db)
+        {
+            this.db = db;
+        }
+
         // GET: UniversityArea/EditInfo
         public ActionResult Index()
         {
             var uni = this.CurrentUser as University;
-            var uniViewModel = new UniversityViewModel()
+            var uniViewModel = Mapper.Map<University, UniversityViewModel>(uni);
+            return View(uniViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(UniversityViewModel model)
+        {
+            if (ModelState.IsValid)
             {
-                Applications = uni.Applications,
-                Faculties = uni.Faculties,
-                Programmes = uni.Programmes,
-                UniversityInfo = uni.UniversityInfo
-            };
-            return View();
+                var uni = this.db.Users.Find(model.Id);
+                var result = Mapper.Map<UniversityViewModel, University>(model);
+
+                uni.PictureUrl = "asd";
+                this.db.SaveChanges();
+            }
+
+            return null;
         }
     }
 }
