@@ -223,6 +223,7 @@
     <Content Include="Areas\UniversityArea\Views\_ViewStart.cshtml" />
     <Content Include="Areas\UniversityArea\Views\EditInfo\Index.cshtml" />
     <Content Include="Areas\UniversityArea\Views\EditInfo\_Contacts.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\EditInfo\_CommonInfo.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

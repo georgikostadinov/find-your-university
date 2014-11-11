@@ -18,11 +18,16 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
     {
         private IRepository<University> universities;
         private IRepository<ContactInfo> contacts;
+        private IRepository<City> allCities;
 
-        public EditInfoController(IRepository<University> universities, IRepository<ContactInfo> contacts)
+        public EditInfoController(
+            IRepository<University> universities,
+            IRepository<ContactInfo> contacts,
+            IRepository<City> allCities)
         {
             this.universities = universities;
             this.contacts = contacts;
+            this.allCities = allCities;
         }
 
         protected University CurrentUniversity 
@@ -61,6 +66,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         {
             var contacts = this.CurrentUniversity.UniversityInfo.ContactInfo;
             var contactsModel = Mapper.Map<ContactInfo, ContactInfoViewModel>(contacts);
+            contactsModel.Cities = this.GetCitiesSelectList();
             return PartialView("_Contacts", contactsModel);
         }
 
@@ -76,7 +82,21 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
                 this.contacts.SaveChanges();
             }
 
+            model.Cities = this.GetCitiesSelectList();
             return PartialView("_Contacts", model);
+        }
+
+        private IEnumerable<SelectListItem> GetCitiesSelectList()
+        {
+            IEnumerable<SelectListItem> selectList = this.allCities
+                           .All()
+                           .Select(c => new SelectListItem()
+                           {
+                               Text = c.Name,
+                               Value = c.Id.ToString()
+                           });
+
+            return selectList;
         }
     }
 }
