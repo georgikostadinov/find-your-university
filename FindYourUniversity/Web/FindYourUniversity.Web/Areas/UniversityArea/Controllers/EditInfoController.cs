@@ -16,18 +16,11 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 {
     public class EditInfoController : BaseController
     {
-        private IRepository<University> universities;
-        private IRepository<ContactInfo> contacts;
-        private IRepository<City> allCities;
+        private IFindYourUniversityData data;
 
-        public EditInfoController(
-            IRepository<University> universities,
-            IRepository<ContactInfo> contacts,
-            IRepository<City> allCities)
+        public EditInfoController(IFindYourUniversityData data)
         {
-            this.universities = universities;
-            this.contacts = contacts;
-            this.allCities = allCities;
+            this.data = data;
         }
 
         protected University CurrentUniversity 
@@ -52,11 +45,11 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                var uni = this.universities.All().Where(u => u.Id == model.Id).FirstOrDefault();
+                var uni = this.data.Universities.All().Where(u => u.Id == model.Id).FirstOrDefault();
                 Mapper.Map(model, uni, typeof(UniversityViewModel), typeof(University));
                 
-                this.universities.Update(uni);
-                this.universities.SaveChanges();
+                this.data.Universities.Update(uni);
+                this.data.SaveChanges();
             }
 
             return null;
@@ -76,10 +69,10 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                var contact = this.contacts.GetById(model.Id);
+                var contact = this.data.ContactInfos.GetById(model.Id);
                 Mapper.Map<ContactInfoViewModel, ContactInfo>(model, contact);
-                this.contacts.Update(contact);
-                this.contacts.SaveChanges();
+                this.data.ContactInfos.Update(contact);
+                this.data.SaveChanges();
             }
 
             model.Cities = this.GetCitiesSelectList();
@@ -94,15 +87,18 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             return PartialView("_CommonInfo", commonInfoModel);
         }
 
-        public ActionResult UpdateCommonInfo()
+        public ActionResult UpdateCommonInfo(UniversityInfoViewModel model)
         {
-
+            if (model != null && ModelState.IsValid)
+            {
+                
+            }
             return null;
         }
 
         private IEnumerable<SelectListItem> GetCitiesSelectList()
         {
-            IEnumerable<SelectListItem> selectList = this.allCities
+            IEnumerable<SelectListItem> selectList = this.data.Cities
                            .All()
                            .Select(c => new SelectListItem()
                            {

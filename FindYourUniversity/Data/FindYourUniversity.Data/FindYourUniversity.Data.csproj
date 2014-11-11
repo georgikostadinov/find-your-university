@@ -52,7 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="FindYourUniversityData.cs" />
+    <Compile Include="FindYourUniversityDbContext.cs" />
+    <Compile Include="IFindYourUniversityData.cs" />
+    <Compile Include="IFindYourUniversityDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

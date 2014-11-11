@@ -14,11 +14,11 @@ namespace FindYourUniversity.Web.Controllers
     {
         public BaseController()
         {
-            this.ApplicationDbContext = new ApplicationDbContext();
+            this.ApplicationDbContext = new FindYourUniversityDbContext();
             this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.ApplicationDbContext));
         }
 
-        protected ApplicationDbContext ApplicationDbContext { get; set; }
+        protected FindYourUniversityDbContext ApplicationDbContext { get; set; }
 
         protected UserManager<ApplicationUser> UserManager { get; set; }
 

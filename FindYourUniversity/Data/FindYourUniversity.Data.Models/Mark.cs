@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FindYourUniversity.Data.Common.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FindYourUniversity.Data.Models
 {
-    public class Mark
+    public class Mark : DeletableEntity
     {
         public int Id { get; set; }
         public string StudentId { get; set; }

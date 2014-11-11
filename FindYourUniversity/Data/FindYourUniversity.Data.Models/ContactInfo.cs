@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FindYourUniversity.Data.Common.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FindYourUniversity.Data.Models
 {
-    public class ContactInfo
+    public class ContactInfo : DeletableEntity
     {
         public int Id { get; set; }
         public int? CityId { get; set; }

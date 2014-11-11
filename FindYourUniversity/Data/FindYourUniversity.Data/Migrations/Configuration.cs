@@ -5,7 +5,7 @@ namespace FindYourUniversity.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<FindYourUniversityDbContext>
     {
         public Configuration()
         {
@@ -15,7 +15,7 @@ namespace FindYourUniversity.Data.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(FindYourUniversityDbContext context)
         {
         }
     }

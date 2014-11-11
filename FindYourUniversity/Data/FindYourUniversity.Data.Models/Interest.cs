@@ -1,11 +1,12 @@
-﻿using System;
+﻿using FindYourUniversity.Data.Common.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace FindYourUniversity.Data.Models
 {
-    public class Interest
+    public class Interest : DeletableEntity
     {
         public Interest()
         {

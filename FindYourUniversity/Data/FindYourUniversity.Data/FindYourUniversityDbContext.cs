@@ -10,17 +10,20 @@
     using FindYourUniversity.Data.Migrations;
     using FindYourUniversity.Data.Common.Models;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class FindYourUniversityDbContext : IdentityDbContext<ApplicationUser>, IFindYourUniversityDbContext
     {
-        public ApplicationDbContext()
+        public FindYourUniversityDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<FindYourUniversityDbContext, Configuration>());
         }
 
         public IDbSet<Application> Applications { get; set; }
         public IDbSet<City> Cities { get; set; }
         public IDbSet<Course> Courses { get; set; }
+        public IDbSet<ContactInfo> ContactInfos { get; set; }
+        public IDbSet<UniversityInfo> UniversityInfos { get; set; }
+        public IDbSet<StudentInfo> StudentInfos { get; set; }
         public IDbSet<Degree> Degrees { get; set; }
         public IDbSet<Faculty> Faculties { get; set; }
         public IDbSet<Feedback> Feedbacks { get; set; }
@@ -32,9 +35,9 @@
         public IDbSet<Student> Students { get; set; }
         public IDbSet<University> Universities { get; set; }
 
-        public static ApplicationDbContext Create()
+        public static FindYourUniversityDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new FindYourUniversityDbContext();
         }
 
         public override int SaveChanges()
@@ -43,6 +46,15 @@
             this.ApplyDeletableEntityRules();
 
             return base.SaveChanges();
+        }
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
         }
 
         private void ApplyAuditInfoRules()
