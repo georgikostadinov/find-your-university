@@ -13,5 +13,7 @@ namespace FindYourUniversity.Data.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Information { get; set; }
+        public int ContactInfoId { get; set; }
+        public virtual ContactInfo ContactInfo { get; set; }
     }
 }

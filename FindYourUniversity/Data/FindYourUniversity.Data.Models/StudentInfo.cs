@@ -17,6 +17,6 @@ namespace FindYourUniversity.Data.Models
         public string School { get; set; }
         public string IdCardUrl { get; set; }
         public int ContactInfoId { get; set; }
-        public ContactInfo ContactInfo { get; set; }
+        public virtual ContactInfo ContactInfo { get; set; }
     }
 }
