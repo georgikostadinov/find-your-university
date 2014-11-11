@@ -13,7 +13,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.ViewModels
         public int Id { get; set; }
         public int? CityId { get; set; }
         public virtual City City { get; set; }
-        public IEnumerable<SelectListItem> Cities { get; set; }
+        public IEnumerable<SelectListItem> CitiesList { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
         public string Telephone { get; set; }

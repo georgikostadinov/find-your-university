@@ -8,6 +8,8 @@
         InsertionMode = InsertionMode.Replace
     }, new { @class = "form col-md-5", enctype = "multipart/form-data" }))
     {
+        @Html.AntiForgeryToken();
+        @Html.HiddenFor(u => u.Id);
         <div class="form-group">
             @Html.LabelFor(u => u.Name)
             @Html.TextBoxFor(u => u.Name, new { @class = "form-control" })
@@ -20,9 +22,7 @@
         {
             <p class="help-block">Все още нямате качено изображение</p>
         }
-        <div class="form-group">
-            <input type="file" name="pic" />
-        </div>
+        <input type="file" name="Images" id="Images" />
         <input type="submit" value="Обнови" class="btn btn-primary" />
     }
     <div class="col-md-7">
