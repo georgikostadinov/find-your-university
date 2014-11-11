@@ -191,6 +191,7 @@
     <Compile Include="Areas\UniversityArea\Controllers\EditInfoController.cs" />
     <Compile Include="Areas\UniversityArea\UniversityAreaAreaRegistration.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\ContactInfoViewModel.cs" />
+    <Compile Include="Areas\UniversityArea\ViewModels\UniversityInfoViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\UniversityViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />

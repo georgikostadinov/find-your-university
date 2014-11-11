@@ -86,6 +86,20 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             return PartialView("_Contacts", model);
         }
 
+        public ActionResult CommonInfo()
+        {
+            var info = this.CurrentUniversity.UniversityInfo;
+            var commonInfoModel = Mapper.Map<UniversityInfo, UniversityInfoViewModel>(info);
+            commonInfoModel.PictureUrl = this.CurrentUniversity.PictureUrl;
+            return PartialView("_CommonInfo", commonInfoModel);
+        }
+
+        public ActionResult UpdateCommonInfo()
+        {
+
+            return null;
+        }
+
         private IEnumerable<SelectListItem> GetCitiesSelectList()
         {
             IEnumerable<SelectListItem> selectList = this.allCities

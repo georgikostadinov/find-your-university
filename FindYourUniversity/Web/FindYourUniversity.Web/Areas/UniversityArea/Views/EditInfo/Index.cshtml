@@ -4,17 +4,23 @@
 }
 
 <ul class="nav nav-tabs nav-justified" role="tablist" id="menu">
-    <li role="presentation" class="active"><a href="#">Обща информация</a></li>
+    <li role="presentation" class="active">
+        @Ajax.ActionLink("Обща информация", "CommonInfo", "EditInfo", new AjaxOptions()
+                       {
+                           InsertionMode = InsertionMode.Replace,
+                           UpdateTargetId = "results"
+                       })
+    </li>
     <li role="presentation">
         @Ajax.ActionLink("Контакти", "Contacts", "EditInfo", new AjaxOptions()
                        {
                            InsertionMode = InsertionMode.Replace,
                            UpdateTargetId = "results"
                        })
-</li>
-<li role="presentation"><a href="#">Факултети</a></li>
-<li role="presentation"><a href="#">Специалности</a></li>
-<li role="presentation"><a href="#">Получени документи</a></li>
+    </li>
+    <li role="presentation"><a href="#">Факултети</a></li>
+    <li role="presentation"><a href="#">Специалности</a></li>
+    <li role="presentation"><a href="#">Получени документи</a></li>
 </ul>
 
 <div id="results"></div>
