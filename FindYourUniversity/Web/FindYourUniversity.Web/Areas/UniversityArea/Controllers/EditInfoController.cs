@@ -12,6 +12,7 @@ using FindYourUniversity.Data.Common.Repository;
 using FindYourUniversity.Data;
 using Microsoft.AspNet.Identity;
 using System.IO;
+using FindYourUniversity.Common.Extensions;
 
 namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 {
@@ -24,9 +25,9 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             this.data = data;
         }
 
-        protected University CurrentUniversity 
+        protected University CurrentUniversity
         {
-            get 
+            get
             {
                 var us = this.CurrentUser as University;
                 return this.CurrentUser as University;
@@ -36,8 +37,10 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         // GET: UniversityArea/EditInfo
         public ActionResult Index()
         {
-            var uniViewModel = Mapper.Map<University, UniversityViewModel>(this.CurrentUniversity);
-            return View(uniViewModel);
+            var info = this.CurrentUniversity.UniversityInfo;
+            var commonInfoModel = Mapper.Map<UniversityInfo, UniversityInfoViewModel>(info);
+            commonInfoModel.PictureUrl = this.CurrentUniversity.PictureUrl;
+            return View(commonInfoModel);
         }
 
         [HttpPost]
@@ -48,7 +51,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             {
                 var uni = this.data.Universities.All().Where(u => u.Id == model.Id).FirstOrDefault();
                 Mapper.Map(model, uni, typeof(UniversityViewModel), typeof(University));
-                
+
                 this.data.Universities.Update(uni);
                 this.data.SaveChanges();
             }
@@ -100,19 +103,42 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 
                     if (file != null && file.ContentLength > 0)
                     {
-                        var fileName = Path.GetFileName(file.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                        file.SaveAs(path);
-                        model.PictureUrl = path;
+                        byte[] filedata = null;
+
+                        using (var binaryReader = new BinaryReader(file.InputStream))
+                        {
+                            filedata = binaryReader.ReadBytes(file.ContentLength);
+                        }
+
+                        var dataAsString = Convert.ToBase64String(filedata);
+                        if (dataAsString.IsImage())
+                        {
+                            var fileName = this.CurrentUniversity.Id + file.FileName.Substring(file.FileName.LastIndexOf('.'));
+                            var path = Path.Combine(Server.MapPath("~/Areas/UniversityArea/Images"), fileName);
+                            System.IO.File.WriteAllBytes(path, filedata);
+                            model.PictureUrl = "/Areas/UniversityArea/Images/" + fileName;
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index");
+                        }
                     }
                 }
                 var info = this.data.UniversityInfos.GetById(model.Id);
                 Mapper.Map<UniversityInfoViewModel, UniversityInfo>(model, info);
+                if (model.PictureUrl != null)
+                {
+                    this.data.Universities.All()
+                        .Where(u => u.Id == this.CurrentUniversity.Id)
+                        .FirstOrDefault()
+                        .PictureUrl = model.PictureUrl;
+                }
+               
                 this.data.UniversityInfos.Update(info);
                 this.data.SaveChanges();
             }
 
-            return PartialView("_CommonInfo", model);
+            return RedirectToAction("Index");
         }
 
         private IEnumerable<SelectListItem> GetCitiesSelectList()

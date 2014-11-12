@@ -2,11 +2,7 @@
 
 <div class="row">
 
-    @using (Ajax.BeginForm("UpdateCommonInfo", "EditInfo",
-    new AjaxOptions()
-    {
-        InsertionMode = InsertionMode.Replace
-    }, new { @class = "form col-md-5", enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("UpdateCommonInfo", "EditInfo", FormMethod.Post, new { @class = "form col-md-5", enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken();
         @Html.HiddenFor(u => u.Id);
@@ -22,7 +18,7 @@
         {
             <p class="help-block">Все още нямате качено изображение</p>
         }
-        <input type="file" name="Images" id="Images" />
+        <input type="file" name="Image" id="Images" />
         <input type="submit" value="Обнови" class="btn btn-primary" />
     }
     <div class="col-md-7">

@@ -1,4 +1,4 @@
-﻿@model FindYourUniversity.Web.Areas.UniversityArea.ViewModels.UniversityViewModel
+﻿@model FindYourUniversity.Web.Areas.UniversityArea.ViewModels.UniversityInfoViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -23,7 +23,7 @@
     <li role="presentation"><a href="#">Получени документи</a></li>
 </ul>
 
-<div id="results"></div>
+<div id="results">@Html.Partial("_CommonInfo", Model)</div>
 
 @section scripts{
     <script>

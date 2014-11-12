@@ -13,7 +13,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.ViewModels
         public string Name { get; set; }
         public string Information { get; set; }
         public string PictureUrl { get; set; }
-        public IEnumerable<HttpPostedFileBase> Images { get; set; }
+        public HttpPostedFileBase Image { get; set; }
 
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {

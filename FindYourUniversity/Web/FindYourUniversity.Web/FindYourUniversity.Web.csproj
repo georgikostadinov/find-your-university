@@ -285,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\UniversityArea\Images\" />
     <Folder Include="Areas\UniversityArea\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +304,10 @@
     <ProjectReference Include="..\..\Data\FindYourUniversity.Data\FindYourUniversity.Data.csproj">
       <Project>{8ac51f78-5fa2-4b37-b28e-6140a13bf70c}</Project>
       <Name>FindYourUniversity.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FindYourUniversity.Common\FindYourUniversity.Common.csproj">
+      <Project>{f8ca5ca1-3997-473e-aae8-6df39f95dc48}</Project>
+      <Name>FindYourUniversity.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\FindYourUniversity.Web.Infrastructure\FindYourUniversity.Web.Infrastructure.csproj">
       <Project>{14ccd972-c398-402d-9d71-70fc4ab499d6}</Project>
