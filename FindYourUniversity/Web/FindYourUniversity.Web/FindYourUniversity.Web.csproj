@@ -188,7 +188,10 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\UniversityArea\Controllers\CommonInfoController.cs" />
+    <Compile Include="Areas\UniversityArea\Controllers\ContactInfoController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\EditInfoController.cs" />
+    <Compile Include="Areas\UniversityArea\Controllers\UniversityBaseController.cs" />
     <Compile Include="Areas\UniversityArea\UniversityAreaAreaRegistration.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\ContactInfoViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\UniversityInfoViewModel.cs" />
@@ -223,8 +226,9 @@
     <Content Include="Areas\UniversityArea\Views\web.config" />
     <Content Include="Areas\UniversityArea\Views\_ViewStart.cshtml" />
     <Content Include="Areas\UniversityArea\Views\EditInfo\Index.cshtml" />
-    <Content Include="Areas\UniversityArea\Views\EditInfo\_Contacts.cshtml" />
-    <Content Include="Areas\UniversityArea\Views\EditInfo\_CommonInfo.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\ContactInfo\Index.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\CommonInfo\Index.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -286,7 +290,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\UniversityArea\Images\" />
-    <Folder Include="Areas\UniversityArea\Views\Shared\" />
+    <Folder Include="Areas\UniversityArea\Views\UniversityBase\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

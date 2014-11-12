@@ -15,9 +15,9 @@ namespace FindYourUniversity.Web.Areas.UniversityArea
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "UniversityArea_default",
+                "UniversityArea",
                 "UniversityArea/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "CommonInfo", action = "Index", id = UrlParameter.Optional }                
             );
         }
     }

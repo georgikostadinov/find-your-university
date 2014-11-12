@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+
+<ul class="nav nav-tabs nav-justified" role="tablist" id="menu">
+    <li role="presentation">
+        @Html.ActionLink("Обща информация", "Index", "CommonInfo")
+    </li>
+    <li role="presentation">
+        @Html.ActionLink("Контакти", "Index", "ContactInfo")
+    </li>
+    <li role="presentation"><a href="#">Факултети</a></li>
+    <li role="presentation"><a href="#">Специалности</a></li>
+    <li role="presentation"><a href="#">Получени документи</a></li>
+</ul>
+
+<div id="area-body">@RenderBody()</div>
+
+@section scripts{
+    <script>
+        $("#menu").on("click", function (event) {
+            $(".active").removeClass("active");
+            event.target.parentNode.className += " active";
+        })
+    </script>
+}

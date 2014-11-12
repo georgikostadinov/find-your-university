@@ -12,19 +12,26 @@ namespace FindYourUniversity.Web.Controllers
 {
     public abstract class BaseController : Controller
     {
-        public BaseController()
+        private IFindYourUniversityData data;
+        public BaseController(IFindYourUniversityData data)
         {
             this.ApplicationDbContext = new FindYourUniversityDbContext();
             this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.ApplicationDbContext));
+            this.data = data;
+        }
+
+        protected IFindYourUniversityData Data
+        {
+            get { return this.data; }
         }
 
         protected FindYourUniversityDbContext ApplicationDbContext { get; set; }
 
         protected UserManager<ApplicationUser> UserManager { get; set; }
 
-        public ApplicationUser CurrentUser 
+        public ApplicationUser CurrentUser
         {
-            get 
+            get
             {
                 return this.UserManager.FindById(User.Identity.GetUserId());
             }

@@ -2,7 +2,7 @@
 
 <div class="row">
 
-    @using (Html.BeginForm("UpdateCommonInfo", "EditInfo", FormMethod.Post, new { @class = "form col-md-5", enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Update", "CommonInfo", FormMethod.Post, new { @class = "form col-md-5", enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken();
         @Html.HiddenFor(u => u.Id);
