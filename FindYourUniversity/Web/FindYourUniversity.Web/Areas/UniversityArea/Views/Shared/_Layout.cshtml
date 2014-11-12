@@ -1,26 +1,27 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Styles.Render("~/Content/kendo")
+    @RenderSection("styles", required:false)
 }
 
 <ul class="nav nav-tabs nav-justified" role="tablist" id="menu">
-    <li role="presentation">
+    <li role="presentation" id="commoninfo">
         @Html.ActionLink("Обща информация", "Index", "CommonInfo")
     </li>
-    <li role="presentation">
+    <li role="presentation" id="contactinfo">
         @Html.ActionLink("Контакти", "Index", "ContactInfo")
     </li>
-    <li role="presentation"><a href="#">Факултети</a></li>
-    <li role="presentation"><a href="#">Специалности</a></li>
-    <li role="presentation"><a href="#">Получени документи</a></li>
+    <li role="presentation" id="faculties"><a href="#">Факултети</a></li>
+    <li role="presentation" id="programmes"><a href="#">Специалности</a></li>
+    <li role="presentation" id="applications"><a href="#">Получени документи</a></li>
 </ul>
 
 <div id="area-body">@RenderBody()</div>
 
 @section scripts{
-    <script>
-        $("#menu").on("click", function (event) {
-            $(".active").removeClass("active");
-            event.target.parentNode.className += " active";
-        })
-    </script>
+    @Scripts.Render("~/bundles/kendo")
+    @RenderSection("scripts", required:false)
 }
