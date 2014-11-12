@@ -19,6 +19,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         {
             get
             {
+                var user = this.CurrentUser;
                 return this.CurrentUser as University;
             }
         }

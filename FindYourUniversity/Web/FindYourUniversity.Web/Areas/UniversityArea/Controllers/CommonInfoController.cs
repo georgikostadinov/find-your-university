@@ -9,13 +9,14 @@ using FindYourUniversity.Common.Extensions;
 using FindYourUniversity.Data;
 using AutoMapper;
 using FindYourUniversity.Data.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 {
     public class CommonInfoController : UniversityBaseController
     {
-        public CommonInfoController(IFindYourUniversityData data) 
-            : base(data) 
+        public CommonInfoController(IFindYourUniversityData data)
+            : base(data)
         {
         }
 
@@ -77,6 +78,15 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         private UniversityInfoViewModel GetCommonInfoViewModel()
         {
             var info = this.CurrentUniversity.UniversityInfo;
+            if (info == null)
+            {
+                var uniId = this.User.Identity.GetUserId();
+                var uni = this.Data.Universities.All().Where(u => u.Id == uniId).FirstOrDefault();
+                uni.UniversityInfo = new UniversityInfo();
+                uni.UniversityInfo.ContactInfo = new ContactInfo();
+                this.Data.SaveChanges();
+                info = uni.UniversityInfo;
+            }
             var commonInfoModel = Mapper.Map<UniversityInfo, UniversityInfoViewModel>(info);
             commonInfoModel.PictureUrl = this.CurrentUniversity.PictureUrl;
             return commonInfoModel;

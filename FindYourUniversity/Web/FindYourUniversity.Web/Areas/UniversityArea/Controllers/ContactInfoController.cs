@@ -19,6 +19,11 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 
         public ActionResult Index()
         {
+            var info = this.CurrentUniversity.UniversityInfo;
+            if (info == null)
+            {
+                return View();
+            }
             var contacts = this.CurrentUniversity.UniversityInfo.ContactInfo;
             var contactsModel = Mapper.Map<ContactInfo, ContactInfoViewModel>(contacts);
             contactsModel.CitiesList = this.GetCitiesSelectList();

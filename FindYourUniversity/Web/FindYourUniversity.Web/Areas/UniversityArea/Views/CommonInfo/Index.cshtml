@@ -14,7 +14,7 @@
             @Html.LabelFor(u => u.Information)
             @Html.TextAreaFor(u => u.Information, new { @class = "form-control", rows = "10", cols = "450" })
         </div>
-        if (this.Model.PictureUrl == null)
+        if (this.Model == null || this.Model.PictureUrl == null)
         {
             <p class="help-block">Все още нямате качено изображение</p>
         }
@@ -22,10 +22,9 @@
         <input type="submit" value="Обнови" class="btn btn-primary" />
     }
     <div class="col-md-7">
-        @if (this.Model.PictureUrl != null)
+        @if (this.Model != null && this.Model.PictureUrl != null)
         {
             <img src="@this.Model.PictureUrl" alt="picture" class="img-thumbnail" width="400" />
         }
     </div>
 </div>
-@Html.Kendo().Calendar().Name("calendar")

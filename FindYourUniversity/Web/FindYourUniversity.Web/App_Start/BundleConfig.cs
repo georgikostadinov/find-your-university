@@ -37,8 +37,10 @@ namespace FindYourUniversity.Web
                 "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                          "~/Scripts/kendo/jquery.min.js",
-                          "~/Scripts/jquery.unobtrusive-ajax.js"));
+                          "~/Scripts/kendo/jquery.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/unobtrusive").Include(
+                 "~/Scripts/jquery.unobtrusive-ajax.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

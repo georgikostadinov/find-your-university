@@ -1106,7 +1106,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\UniversityArea\Images\" />
-    <Folder Include="Areas\UniversityArea\Views\UniversityBase\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
