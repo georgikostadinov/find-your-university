@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FindYourUniversity.Data;
 using FindYourUniversity.Data.Models;
+using FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base;
 using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
 using System;
 using System.Collections.Generic;

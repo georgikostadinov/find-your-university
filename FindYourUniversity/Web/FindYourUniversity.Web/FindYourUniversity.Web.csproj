@@ -191,11 +191,15 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\UniversityArea\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\CommonInfoController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\ContactInfoController.cs" />
-    <Compile Include="Areas\UniversityArea\Controllers\UniversityBaseController.cs" />
+    <Compile Include="Areas\UniversityArea\Controllers\FacultiesController.cs" />
+    <Compile Include="Areas\UniversityArea\Controllers\Base\UniversityBaseController.cs" />
     <Compile Include="Areas\UniversityArea\UniversityAreaAreaRegistration.cs" />
+    <Compile Include="Areas\UniversityArea\ViewModels\Base\AdministrationViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\ContactInfoViewModel.cs" />
+    <Compile Include="Areas\UniversityArea\ViewModels\FacultyViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\UniversityInfoViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\UniversityViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -447,6 +451,19 @@
     <Content Include="Areas\UniversityArea\Views\Shared\_Layout.cshtml" />
     <Content Include="Content\kendo\images\kendoui.ttf" />
     <Content Include="Content\kendo\images\kendoui.woff" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Faculties\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1106,6 +1123,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\UniversityArea\Images\" />
+    <Folder Include="Areas\UniversityArea\Views\KendoGridAdministration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

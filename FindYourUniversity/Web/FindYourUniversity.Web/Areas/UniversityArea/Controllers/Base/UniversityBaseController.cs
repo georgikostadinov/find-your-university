@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
+namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base
 {
     public abstract class UniversityBaseController : BaseController
     {

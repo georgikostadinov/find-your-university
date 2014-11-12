@@ -10,6 +10,7 @@ using FindYourUniversity.Data;
 using AutoMapper;
 using FindYourUniversity.Data.Models;
 using Microsoft.AspNet.Identity;
+using FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base;
 
 namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 {
