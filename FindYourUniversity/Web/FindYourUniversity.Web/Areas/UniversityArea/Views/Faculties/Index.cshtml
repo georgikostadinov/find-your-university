@@ -1,9 +1,30 @@
 ﻿@using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
 
-@(Html.Kendo()
-.Grid<FacultyViewModel>()
-.Name("grid")
-.DataSource(data => data.Ajax()
-                        .Read(read => read.Action("Read", "Faculties")))
-)
-
+<div class="row">
+    <div class="col-md-6">
+        @(Html.Kendo()
+    .Grid<FacultyViewModel>()
+    .Name("grid")
+    .Columns(col =>
+    {
+        col.Bound(u => u.Name).Title("Име");
+        col.Bound(u => u.Id).Hidden();
+        col.Bound(u => u.UniversityId).Hidden();
+        col.Bound(u => u.CreatedOn).Hidden();
+        col.Bound(u => u.ModifiedOn).Hidden();
+        col.Command(command => command.Edit()).Title("Промяна").Width(100);
+        col.Command(command => command.Destroy()).Title("Изтриване").Width(120);
+    })
+    .Sortable()
+    .Pageable()
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .ToolBar(command => command.Create().Text("Добавяне на факултет"))
+    .DataSource(data => data.Ajax()
+                        .Model(model => model.Id(u => u.Id))
+                        .Read(read => read.Action("Read", "Faculties"))
+                        .Create(create => create.Action("Create", "Faculties"))
+                        .Update(update => update.Action("Update", "Faculties"))
+                        .Destroy(destroy=>destroy.Action("Destroy", "Faculties")))
+        )
+    </div>
+</div>

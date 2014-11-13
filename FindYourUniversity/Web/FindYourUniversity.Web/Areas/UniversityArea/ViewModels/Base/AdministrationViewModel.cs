@@ -13,7 +13,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.ViewModels.Base
     {
         [Display(Name = "Добавено на")]
         [HiddenInput(DisplayValue = false)]
-        public DateTime CreatedOn { get; set; }
+        public DateTime? CreatedOn { get; set; }
 
         [Display(Name = "Променено на")]
         [HiddenInput(DisplayValue = false)]
