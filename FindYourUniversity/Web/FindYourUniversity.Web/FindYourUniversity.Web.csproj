@@ -196,10 +196,12 @@
     <Compile Include="Areas\UniversityArea\Controllers\ContactInfoController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\FacultiesController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\Base\UniversityBaseController.cs" />
+    <Compile Include="Areas\UniversityArea\Controllers\ProgrammesController.cs" />
     <Compile Include="Areas\UniversityArea\UniversityAreaAreaRegistration.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\Base\AdministrationViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\ContactInfoViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\FacultyViewModel.cs" />
+    <Compile Include="Areas\UniversityArea\ViewModels\ProgrammeViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\UniversityInfoViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\UniversityViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -464,6 +466,7 @@
     <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\UniversityArea\Views\Faculties\Index.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Programmes\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1123,7 +1126,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\UniversityArea\Images\" />
-    <Folder Include="Areas\UniversityArea\Views\KendoGridAdministration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
