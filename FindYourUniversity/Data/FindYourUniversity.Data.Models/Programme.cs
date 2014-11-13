@@ -20,6 +20,8 @@ namespace FindYourUniversity.Data.Models
         public virtual Degree Degree { get; set; }
         public int FacultyId { get; set; }
         public virtual Faculty Faculty { get; set; }
+        public string UniversityId { get; set; }
+        public virtual University University { get; set; }
         public ICollection<Course> Courses { get; set; }
     }
 }

@@ -27,6 +27,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
             var faculties = this.Data.Faculties.All()
@@ -36,6 +37,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             return Json(faculties.ToDataSourceResult(request));
         }
 
+        [HttpPost]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, [Bind(Include = "Id, Name")] FacultyViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -49,6 +51,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
 
+        [HttpPost]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, FacultyViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -63,6 +66,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
 
+        [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, [Bind(Include = "Id")] FacultyViewModel model)
         {
             if (model != null && ModelState.IsValid)

@@ -1,11 +1,12 @@
 ﻿@using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
 
 @(Html.Kendo().Grid<ProgrammeViewModel>()
-    .Name("grid")
+    .Name("grid").HtmlAttributes(new { @class="table" })
     .Columns(columns =>
     {
+        columns.Bound(p => p.Id).Hidden();
         columns.Bound(p => p.Name);
-        columns.ForeignKey(p => p.DegreeId, (System.Collections.IEnumerable)ViewData["degrees"], "Id", "Name").Width(300);
+        columns.ForeignKey(p => p.DegreeId, (System.Collections.IEnumerable)ViewData["degrees"], "Id", "Name").Width(220);
         columns.ForeignKey(p => p.FacultyId, (System.Collections.IEnumerable)ViewData["faculties"], "Id", "Name");
         columns.Bound(p => p.Description);
 
@@ -35,39 +36,3 @@
             .Destroy(destroy => destroy.Action("Destroy", "Programmes"))
     )
 )
-
-
-@*@(Html.Kendo()
-        .Grid<ProgrammeViewModel>()
-        .Name("grid")
-        .Columns(col =>
-        {
-            col.Bound(p => p.Name);
-            //col.Bound(p => p.FacultyName);
-            //col.Bound(p => p.Description);
-            col.ForeignKey(p => p.DegreeId, (System.Collections.IEnumerable)ViewData["degrees"], "Id", "Name");
-            //col.Bound(p => p.DegreeId).Hidden();
-            //col.Bound(p => p.FacultyId).Hidden();
-            //col.Bound(p => p.Id).Hidden();
-            col.Command(command => command.Edit()).Title("Промяна").Width(100);
-            col.Command(command => command.Destroy()).Title("Изтриване").Width(120);
-        })
-        .Sortable()
-        .Pageable()
-        .Editable(editable =>
-        {
-            editable.Mode(GridEditMode.PopUp);
-        })
-        .ToolBar(command => command.Create().Text("Добавяне на факултет"))
-            .DataSource(data => data.Ajax()
-                            .Model(model =>
-                            {
-                                model.Id(u => u.Id);
-                                model.Field(u => u.Id).Editable(false);
-                                model.Field(u => u.DegreeId).DefaultValue(1);
-                            })
-                            .Read(read => read.Action("Read", "Programmes"))
-                            .Create(create => create.Action("Create", "Faculties"))
-                            .Update(update => update.Action("Update", "Faculties"))
-                            .Destroy(destroy => destroy.Action("Destroy", "Faculties")))
-    )*@
