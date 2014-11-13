@@ -194,6 +194,7 @@
     <Compile Include="Areas\UniversityArea\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\CommonInfoController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\ContactInfoController.cs" />
+    <Compile Include="Areas\UniversityArea\Controllers\CoursesController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\FacultiesController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\Base\UniversityBaseController.cs" />
     <Compile Include="Areas\UniversityArea\Controllers\ProgrammesController.cs" />
@@ -467,6 +468,7 @@
     <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\UniversityArea\Views\Faculties\Index.cshtml" />
     <Content Include="Areas\UniversityArea\Views\Programmes\Index.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Courses\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -1,0 +1,86 @@
+﻿
+<div class="row">
+    <div>
+        @(Html.Kendo().DropDownList()
+              .Name("degrees")
+              .HtmlAttributes(new { style = "width:300px" })
+              .OptionLabel("Образователна степен...")
+              .DataTextField("Name")
+              .DataValueField("Id")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetCascadeDegrees", "Courses");
+                  });
+              })
+        )
+    </div>
+    <div>
+        @(Html.Kendo().DropDownList()
+              .Name("faculties")
+              .HtmlAttributes(new { style = "width:300px" })
+              .OptionLabel("Изберете факултет...")
+              .DataTextField("Name")
+              .DataValueField("Id")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetCascadeFaculties", "Courses")
+                          .Data("filterFaculties");
+                  })
+                  .ServerFiltering(true);
+              })
+              .Enable(false)
+              .AutoBind(false)
+                      .CascadeFrom("degrees")
+        )
+    </div>
+    <div>
+        @(Html.Kendo().DropDownList()
+              .Name("programmes")
+              .HtmlAttributes(new { style = "width:300px" })
+              .OptionLabel("Изберете специалност...")
+              .DataTextField("Name")
+              .DataValueField("Id")
+              .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetCascadeProgrammes", "Courses")
+                          .Data("filterProgrammes");
+                  })
+                  .ServerFiltering(true);
+              })
+              .Enable(false)
+              .AutoBind(false)
+                      .CascadeFrom("faculties")
+        )
+    </div>
+</div>
+<script>
+    function filterProgrammes() {
+        return {
+            faculties: $("#faculties").val(),
+            degrees: $("#degrees").val()
+        };
+    };
+
+
+    function filterFaculties() {
+        return {
+            degrees: $("#degrees").val()
+        };
+    }
+
+    $(document).ready(function () {
+        var degrees = $("#degrees").data("kendoDropDownList"),
+            faculties = $("#faculties").data("kendoDropDownList"),
+            programmes = $("#programmes").data("kendoDropDownList");
+    });
+
+    $("#programmes").change(function () {
+        alert($("#programmes").val());
+    })
+</script>
