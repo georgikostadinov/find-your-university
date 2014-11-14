@@ -1,7 +1,8 @@
 ﻿@using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
 
-@(Html.Kendo().Grid<ProgrammeViewModel>()
-    .Name("grid").HtmlAttributes(new { @class="table" })
+@(Html.Kendo()
+    .Grid<ProgrammeViewModel>()
+    .Name("grid")
     .Columns(columns =>
     {
         columns.Bound(p => p.Id).Hidden();
@@ -9,7 +10,7 @@
         columns.ForeignKey(p => p.DegreeId, (System.Collections.IEnumerable)ViewData["degrees"], "Id", "Name").Width(220);
         columns.ForeignKey(p => p.FacultyId, (System.Collections.IEnumerable)ViewData["faculties"], "Id", "Name");
         columns.Bound(p => p.Description);
-
+        columns.Template(p => @Html.ActionLink("Преглед на курсовете...", "Index", "Courses", new { progId = p.Id }));
         columns.Command(command => command.Destroy().Text("Изтриване")).Title("Изтриване").Width(110);
         columns.Command(command => command.Edit().Text("Промяна")).Title("Промяна").Width(100);
     })

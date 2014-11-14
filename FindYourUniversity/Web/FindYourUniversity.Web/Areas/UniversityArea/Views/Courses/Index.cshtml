@@ -1,12 +1,12 @@
 ﻿
-<div class="row">
+<div class="row text-center">
     <div>
         @(Html.Kendo().DropDownList()
               .Name("degrees")
               .HtmlAttributes(new { style = "width:300px" })
               .OptionLabel("Образователна степен...")
-              .DataTextField("Name")
-              .DataValueField("Id")
+              .DataTextField("DegreeName")
+              .DataValueField("DegreeId")
               .DataSource(source =>
               {
                   source.Read(read =>
@@ -21,8 +21,8 @@
               .Name("faculties")
               .HtmlAttributes(new { style = "width:300px" })
               .OptionLabel("Изберете факултет...")
-              .DataTextField("Name")
-              .DataValueField("Id")
+              .DataTextField("FacultyName")
+              .DataValueField("FacultyId")
               .DataSource(source =>
               {
                   source.Read(read =>
@@ -42,8 +42,8 @@
               .Name("programmes")
               .HtmlAttributes(new { style = "width:300px" })
               .OptionLabel("Изберете специалност...")
-              .DataTextField("Name")
-              .DataValueField("Id")
+              .DataTextField("ProgrammeName")
+              .DataValueField("ProgrammeId")
               .DataSource(source =>
               {
                   source.Read(read =>
@@ -56,9 +56,48 @@
               .Enable(false)
               .AutoBind(false)
                       .CascadeFrom("faculties")
+              .Events(e => e.Change("programmeChanged"))
         )
     </div>
 </div>
+
+@(Html.Kendo()
+    .Grid<FindYourUniversity.Web.Areas.UniversityArea.ViewModels.CourseViewModel>()
+        .Name("coursesGrid")
+        
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Id).Hidden();
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.Semester);
+        columns.Bound(p => p.Credits);
+        columns.Bound(p => p.Hours);
+        columns.Command(command => command.Destroy().Text("Изтриване")).Title("Изтриване").Width(110);
+        columns.Command(command => command.Edit().Text("Промяна")).Title("Промяна").Width(100);
+    })
+    .ToolBar(toolBar =>
+        {
+            toolBar.Create().Text("Добавяне на курс");
+        })
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Filterable()
+    .Groupable()
+    .Sortable()
+    .Pageable()
+    .AutoBind(false)
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Model(model =>
+        {
+            model.Id(p => p.Id);
+            model.Field(p => p.Id).Editable(false);
+        })
+            .Read(read => read.Action("Read", "Courses").Data("selectedProgrammeId"))
+            .Update(update => update.Action("Update", "Courses"))
+            .Create(create => create.Action("Create", "Courses").Data("selectedProgrammeId"))
+            .Destroy(destroy => destroy.Action("Destroy", "Courses"))
+    ))
+
 <script>
     function filterProgrammes() {
         return {
@@ -80,7 +119,15 @@
             programmes = $("#programmes").data("kendoDropDownList");
     });
 
-    $("#programmes").change(function () {
-        alert($("#programmes").val());
-    })
+    function programmeChanged() {
+        var grid = $("#coursesGrid").data("kendoGrid");
+        grid.dataSource.read();
+    }
+
+    function selectedProgrammeId() {
+        var programmeId = {
+            ProgId: $("#programmes").val()
+        }
+        return programmeId;
+    }
 </script>

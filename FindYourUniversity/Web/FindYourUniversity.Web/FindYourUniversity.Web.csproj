@@ -201,6 +201,7 @@
     <Compile Include="Areas\UniversityArea\UniversityAreaAreaRegistration.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\Base\AdministrationViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\ContactInfoViewModel.cs" />
+    <Compile Include="Areas\UniversityArea\ViewModels\CourseViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\FacultyViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\ProgrammeViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\UniversityInfoViewModel.cs" />
