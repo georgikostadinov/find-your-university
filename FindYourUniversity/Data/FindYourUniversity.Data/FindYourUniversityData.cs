@@ -124,9 +124,15 @@ namespace FindYourUniversity.Data
             }
         }
 
-        public IDeletableEntityRepository<ContactInfo> ContactInfos
+        public IDeletableEntityRepository<StudentContactInfo> StudentContactInfos
         {
-            get { return this.GetDeletableEntityRepository<ContactInfo>(); }
+            get { return this.GetDeletableEntityRepository<StudentContactInfo>(); }
+        }
+
+
+        public IDeletableEntityRepository<UniversityContactInfo> UniversityContactInfos
+        {
+            get { return this.GetDeletableEntityRepository<UniversityContactInfo>(); }
         }
 
         public IDeletableEntityRepository<UniversityInfo> UniversityInfos

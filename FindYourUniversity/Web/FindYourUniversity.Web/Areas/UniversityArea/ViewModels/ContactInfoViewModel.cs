@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace FindYourUniversity.Web.Areas.UniversityArea.ViewModels
 {
-    public class ContactInfoViewModel : IMapFrom<ContactInfo>, IHaveCustomMappings
+    public class ContactInfoViewModel : IMapFrom<UniversityContactInfo>, IHaveCustomMappings
     {
         public int Id { get; set; }
         public int? CityId { get; set; }
@@ -21,7 +21,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.ViewModels
 
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {
-            configuration.CreateMap<ContactInfo, ContactInfoViewModel>().ReverseMap();
+            configuration.CreateMap<UniversityContactInfo, ContactInfoViewModel>().ReverseMap();
         }
     }
 }

@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
-using FindYourUniversity.Web.ViewModels;
 
 namespace FindYourUniversity.Web.Controllers
 {
@@ -20,8 +19,7 @@ namespace FindYourUniversity.Web.Controllers
 
         public ActionResult Index()
         {
-            var userViewModels = this.users.All().Where(u => u.IsDeleted == false).Project().To<UniversityViewModel>().ToList();
-            return View(userViewModels);
+            return View();
         }
 
         public ActionResult About()

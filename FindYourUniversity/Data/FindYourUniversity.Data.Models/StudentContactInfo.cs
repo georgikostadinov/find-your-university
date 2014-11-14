@@ -9,15 +9,16 @@ using System.Threading.Tasks;
 
 namespace FindYourUniversity.Data.Models
 {
-    public class StudentInfo : DeletableEntity
+    public class StudentContactInfo : DeletableEntity
     {
         [Key, ForeignKey("Student")]
-        public string StudentId { get; set; }
+        public string Id { get; set; }
         public virtual Student Student { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public string LastName { get; set; }
-        public string School { get; set; }
-        public string IdCardUrl { get; set; }
+        public int? CityId { get; set; }
+        public virtual City City { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public string Telephone { get; set; }
+        public string Website { get; set; }
     }
 }

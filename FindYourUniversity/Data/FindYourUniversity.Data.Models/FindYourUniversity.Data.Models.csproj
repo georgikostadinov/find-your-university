@@ -56,7 +56,6 @@
     <Compile Include="ApplicationStatus.cs" />
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="City.cs" />
-    <Compile Include="ContactInfo.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Degree.cs" />
     <Compile Include="Faculty.cs" />
@@ -67,9 +66,11 @@
     <Compile Include="Programme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="StudentContactInfo.cs" />
     <Compile Include="StudentInfo.cs" />
     <Compile Include="Subject.cs" />
     <Compile Include="University.cs" />
+    <Compile Include="UniversityContactInfo.cs" />
     <Compile Include="UniversityInfo.cs" />
   </ItemGroup>
   <ItemGroup>

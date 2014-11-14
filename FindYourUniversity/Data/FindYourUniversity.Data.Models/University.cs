@@ -15,8 +15,8 @@ namespace FindYourUniversity.Data.Models
             this.Faculties = new HashSet<Faculty>();
             this.Applications = new HashSet<Application>();
         }
-        public int? UniversityInfoId { get; set; }
         public virtual UniversityInfo UniversityInfo { get; set; }
+        public virtual UniversityContactInfo ContactInfo { get; set; }
         public virtual ICollection<Programme> Programmes { get; set; }
         public virtual ICollection<Faculty> Faculties { get; set; }
         public virtual ICollection<Application> Applications { get; set; }

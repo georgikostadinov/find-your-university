@@ -21,7 +21,8 @@
         public IDbSet<Application> Applications { get; set; }
         public IDbSet<City> Cities { get; set; }
         public IDbSet<Course> Courses { get; set; }
-        public IDbSet<ContactInfo> ContactInfos { get; set; }
+        public IDbSet<StudentContactInfo> StudentContactInfos { get; set; }
+        public IDbSet<UniversityContactInfo> UniversityContactInfos { get; set; }
         public IDbSet<UniversityInfo> UniversityInfos { get; set; }
         public IDbSet<StudentInfo> StudentInfos { get; set; }
         public IDbSet<Degree> Degrees { get; set; }

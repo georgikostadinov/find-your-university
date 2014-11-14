@@ -84,7 +84,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
                 var uniId = this.User.Identity.GetUserId();
                 var uni = this.Data.Universities.All().Where(u => u.Id == uniId).FirstOrDefault();
                 uni.UniversityInfo = new UniversityInfo();
-                uni.UniversityInfo.ContactInfo = new ContactInfo();
+                //uni.UniversityInfo.ContactInfo = new ContactInfo();
                 this.Data.SaveChanges();
                 info = uni.UniversityInfo;
             }

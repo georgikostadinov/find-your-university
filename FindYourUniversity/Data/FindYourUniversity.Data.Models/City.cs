@@ -11,13 +11,9 @@ namespace FindYourUniversity.Data.Models
     {
         public City()
         {
-            this.Students = new HashSet<Student>();
-            this.Universities = new HashSet<University>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Student> Students { get; set; }
-        public ICollection<University> Universities { get; set; }
     }
 }

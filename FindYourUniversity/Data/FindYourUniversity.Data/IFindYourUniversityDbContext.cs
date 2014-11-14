@@ -15,7 +15,8 @@ namespace FindYourUniversity.Data
         IDbSet<City> Cities { get; set; }
         IDbSet<Course> Courses { get; set; }
         IDbSet<Degree> Degrees { get; set; }
-        IDbSet<ContactInfo> ContactInfos { get; set; }
+        IDbSet<StudentContactInfo> StudentContactInfos { get; set; }
+        IDbSet<UniversityContactInfo> UniversityContactInfos { get; set; }
         IDbSet<UniversityInfo> UniversityInfos { get; set; }
         IDbSet<StudentInfo> StudentInfos { get; set; }
         IDbSet<Faculty> Faculties { get; set; }

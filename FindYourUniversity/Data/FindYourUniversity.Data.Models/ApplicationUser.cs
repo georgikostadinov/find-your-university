@@ -23,7 +23,7 @@
             // Add custom user claims here
             return userIdentity;
         }
-        public DateTime CreatedOn { get; set; }
+        public DateTime? CreatedOn { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
 

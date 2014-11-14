@@ -25,27 +25,28 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             {
                 return View();
             }
-            var contacts = this.CurrentUniversity.UniversityInfo.ContactInfo;
-            var contactsModel = Mapper.Map<ContactInfo, ContactInfoViewModel>(contacts);
-            contactsModel.CitiesList = this.GetCitiesSelectList();
-            return View(contactsModel);
+            //var contacts = this.CurrentUniversity.UniversityInfo.ContactInfo;
+            //var contactsModel = Mapper.Map<ContactInfo, ContactInfoViewModel>(contacts);
+            //contactsModel.CitiesList = this.GetCitiesSelectList();
+            //return View(contactsModel);
+            return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Update(ContactInfoViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var contact = this.Data.ContactInfos.GetById(model.Id);
-                Mapper.Map<ContactInfoViewModel, ContactInfo>(model, contact);
-                this.Data.ContactInfos.Update(contact);
-                this.Data.SaveChanges();
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Update(ContactInfoViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var contact = this.Data.ContactInfos.GetById(model.Id);
+        //        Mapper.Map<ContactInfoViewModel, ContactInfo>(model, contact);
+        //        this.Data.ContactInfos.Update(contact);
+        //        this.Data.SaveChanges();
+        //    }
 
-            model.CitiesList = this.GetCitiesSelectList();
-            return RedirectToAction("Index");
-        }
+        //    model.CitiesList = this.GetCitiesSelectList();
+        //    return RedirectToAction("Index");
+        //}
 
         private IEnumerable<SelectListItem> GetCitiesSelectList()
         {

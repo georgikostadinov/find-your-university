@@ -15,7 +15,8 @@ namespace FindYourUniversity.Data
         IDeletableEntityRepository<Application> Applications { get; }
         IDeletableEntityRepository<City> Cities { get; }
         IDeletableEntityRepository<Course> Courses { get; }
-        IDeletableEntityRepository<ContactInfo> ContactInfos { get; }
+        IDeletableEntityRepository<StudentContactInfo> StudentContactInfos { get; }
+        IDeletableEntityRepository<UniversityContactInfo> UniversityContactInfos { get; }
         IDeletableEntityRepository<UniversityInfo> UniversityInfos { get; }
         IDeletableEntityRepository<StudentInfo> StudentInfos { get; }
         IDeletableEntityRepository<Degree> Degrees { get; }

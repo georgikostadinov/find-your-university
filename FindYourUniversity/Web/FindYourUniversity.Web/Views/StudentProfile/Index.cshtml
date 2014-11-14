@@ -1,0 +1,35 @@
+﻿@model FindYourUniversity.Web.ViewModels.StudentViewModel
+
+@if (Model.PictureUrl == null)
+{
+    <img src="~/Images/default.jpg" width="250" alt="profile-image" class="img-thumbnail" />
+}
+else
+{
+    <img src="@Model.PictureUrl" width="250" alt="profile-image" class="img-thumbnail" />
+}
+
+@using(Html.BeginForm("Update", "StudentProfile", FormMethod.Post, new { @class = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(s => s.StudentInfo.FirstName)
+        @Html.EditorFor(s => s.StudentInfo.FirstName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.StudentInfo.SecondName)
+        @Html.EditorFor(s => s.StudentInfo.SecondName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.StudentInfo.LastName)
+        @Html.EditorFor(s => s.StudentInfo.LastName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.StudentInfo.School)
+        @Html.EditorFor(s => s.StudentInfo.School)
+    </div>
+
+    <input type="submit" class="btn btn-default" value="Обнови" />
+}
