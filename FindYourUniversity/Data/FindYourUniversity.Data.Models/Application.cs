@@ -15,7 +15,6 @@ namespace FindYourUniversity.Data.Models
         public string UniversityId { get; set; }
         public virtual University University { get; set; }
         public DateTime DateCreated { get; set; }
-        public ApplicationStatus Status { get; set; }
-        public string Text { get; set; }
+        public int MyProperty { get; set; }
     }
 }

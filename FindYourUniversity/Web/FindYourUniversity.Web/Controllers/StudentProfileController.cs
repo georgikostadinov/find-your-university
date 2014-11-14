@@ -18,14 +18,20 @@ namespace FindYourUniversity.Web.Controllers
  
         }
 
-        public ActionResult Index()
+        public JsonResult GetCities()
         {
-            var student = this.Data.Students.GetById(this.CurrentUser.Id);
-            var studentModel = Mapper.Map<Student, StudentViewModel>(student);
-            return View(studentModel);
+            var cities = this.Data.Cities
+                .All()
+                .Select(c => new 
+            {
+                CityId = c.Id,
+                CityName = c.Name
+            });
+
+            return Json(cities, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Update(StudentViewModel model)
+        public ActionResult Index()
         {
             var student = this.Data.Students.GetById(this.CurrentUser.Id);
             if (student.StudentInfo == null)
@@ -33,11 +39,24 @@ namespace FindYourUniversity.Web.Controllers
                 student.StudentInfo = new StudentInfo();
                 this.Data.SaveChanges();
             }
+            if (student.ContactInfo == null)
+            {
+                student.ContactInfo = new StudentContactInfo();
+                this.Data.SaveChanges();
+            }
+
+            var studentModel = Mapper.Map<Student, StudentViewModel>(student);
+            return View(studentModel);
+        }
+
+        public ActionResult Update(StudentViewModel model)
+        {
+            var student = this.Data.Students.GetById(this.CurrentUser.Id);
             Mapper.Map<StudentViewModel, Student>(model,student);
             this.Data.Students.Update(student);
             this.Data.SaveChanges();
 
-            return null;
+            return RedirectToAction("Index");
         }
     }
 }

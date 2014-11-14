@@ -31,5 +31,38 @@ else
         @Html.EditorFor(s => s.StudentInfo.School)
     </div>
 
+    <div class="form-group">
+        <span>Град</span>       
+        @(Html.Kendo().DropDownListFor(s=>s.ContactInfo.CityId)
+        .DataTextField("CityName")
+        .DataValueField("CityId")
+        .DataSource(source => source.Read(read=>read.Action("GetCities","StudentProfile"))))
+    </div>
+
+    <div class="form-group">
+        <span>Дата на раждане</span>
+        @(Html.Kendo().DatePickerFor(s=>s.StudentInfo.BirthDate))
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(s => s.ContactInfo.Email)
+        @Html.EditorFor(s => s.ContactInfo.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.ContactInfo.Address)
+        @Html.EditorFor(s => s.ContactInfo.Address)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.ContactInfo.Telephone)
+        @Html.EditorFor(s => s.ContactInfo.Telephone)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.ContactInfo.Website)
+        @Html.EditorFor(s => s.ContactInfo.Website)
+    </div>
+
     <input type="submit" class="btn btn-default" value="Обнови" />
 }

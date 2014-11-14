@@ -17,7 +17,7 @@ namespace FindYourUniversity.Data.Models
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string LastName { get; set; }
+        public DateTime? BirthDate { get; set; }
         public string School { get; set; }
-        public string IdCardUrl { get; set; }
     }
 }

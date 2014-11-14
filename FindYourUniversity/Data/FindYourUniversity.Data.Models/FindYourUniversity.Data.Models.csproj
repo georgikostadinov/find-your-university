@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="ApplicationDetails.cs" />
     <Compile Include="ApplicationStatus.cs" />
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="City.cs" />

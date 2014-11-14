@@ -16,12 +16,13 @@ namespace FindYourUniversity.Web.ViewModels
             this.Marks = new HashSet<Mark>();
             this.Applications = new HashSet<Application>();
         }
-        public int? StudentInfoId { get; set; }
         public virtual StudentInfo StudentInfo { get; set; }
-        public string PictureUrl { get; set; }
+        public virtual StudentContactInfo ContactInfo { get; set; }
         public virtual ICollection<Interest> Interests { get; set; }
         public virtual ICollection<Mark> Marks { get; set; }
         public virtual ICollection<Application> Applications { get; set; }
+
+        public string PictureUrl { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {
