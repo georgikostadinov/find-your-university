@@ -13,14 +13,12 @@ namespace FindYourUniversity.Data.Models
     {
         public Student()
         {
-            this.Interests = new HashSet<Interest>();
-            this.Marks = new HashSet<Mark>();
+            this.ImageDocuments = new HashSet<DocumentImage>();
             this.Applications = new HashSet<Application>();            
         }
         public virtual StudentInfo StudentInfo { get; set; }
         public virtual StudentContactInfo ContactInfo { get; set; }
-        public virtual ICollection<Interest> Interests { get; set; }
-        public virtual ICollection<Mark> Marks { get; set; }
-        public virtual ICollection<Application> Applications { get; set; }        
+        public virtual ICollection<Application> Applications { get; set; }
+        public virtual ICollection<DocumentImage> ImageDocuments { get; set; }
     }
 }

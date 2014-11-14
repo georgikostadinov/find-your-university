@@ -28,11 +28,8 @@
         public IDbSet<Degree> Degrees { get; set; }
         public IDbSet<Faculty> Faculties { get; set; }
         public IDbSet<Feedback> Feedbacks { get; set; }
-        public IDbSet<Interest> Interests { get; set; }
-        public IDbSet<Mark> Marks { get; set; }
         public IDbSet<News> News { get; set; }
         public IDbSet<Programme> Programmes { get; set; }
-        public IDbSet<Subject> Subjects { get; set; }
         public IDbSet<Student> Students { get; set; }
         public IDbSet<University> Universities { get; set; }
 

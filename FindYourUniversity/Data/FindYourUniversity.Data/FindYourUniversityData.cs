@@ -68,22 +68,6 @@ namespace FindYourUniversity.Data
             }
         }
 
-        public IDeletableEntityRepository<Interest> Interests
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Interest>();
-            }
-        }
-
-        public IDeletableEntityRepository<Mark> Marks
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Mark>();
-            }
-        }
-
         public IDeletableEntityRepository<News> News
         {
             get
@@ -97,14 +81,6 @@ namespace FindYourUniversity.Data
             get
             {
                 return this.GetDeletableEntityRepository<Programme>();
-            }
-        }
-
-        public IDeletableEntityRepository<Subject> Subjects
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Subject>();
             }
         }
 

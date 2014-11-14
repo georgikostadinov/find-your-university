@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace FindYourUniversity.Data.Models
 {
-    public class ApplicationDetails
+    public class ApplicationDocumentType
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

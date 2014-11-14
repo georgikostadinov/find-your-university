@@ -12,14 +12,10 @@ namespace FindYourUniversity.Web.ViewModels
     {
         public StudentViewModel()
         {
-            this.Interests = new HashSet<Interest>();
-            this.Marks = new HashSet<Mark>();
             this.Applications = new HashSet<Application>();
         }
         public virtual StudentInfo StudentInfo { get; set; }
         public virtual StudentContactInfo ContactInfo { get; set; }
-        public virtual ICollection<Interest> Interests { get; set; }
-        public virtual ICollection<Mark> Marks { get; set; }
         public virtual ICollection<Application> Applications { get; set; }
 
         public string PictureUrl { get; set; }

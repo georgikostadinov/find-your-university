@@ -21,11 +21,8 @@ namespace FindYourUniversity.Data
         IDbSet<StudentInfo> StudentInfos { get; set; }
         IDbSet<Faculty> Faculties { get; set; }
         IDbSet<Feedback> Feedbacks { get; set; }
-        IDbSet<Interest> Interests { get; set; }
-        IDbSet<Mark> Marks { get; set; }
         IDbSet<News> News { get; set; }
         IDbSet<Programme> Programmes { get; set; }
-        IDbSet<Subject> Subjects { get; set; }
         IDbSet<Student> Students { get; set; }
         IDbSet<University> Universities { get; set; }
         int SaveChanges();

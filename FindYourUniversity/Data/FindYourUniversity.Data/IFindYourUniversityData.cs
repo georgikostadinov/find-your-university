@@ -22,11 +22,8 @@ namespace FindYourUniversity.Data
         IDeletableEntityRepository<Degree> Degrees { get; }
         IDeletableEntityRepository<Faculty> Faculties { get; }
         IDeletableEntityRepository<Feedback> Feedbacks { get; }
-        IDeletableEntityRepository<Interest> Interests { get; }
-        IDeletableEntityRepository<Mark> Marks { get; }
         IDeletableEntityRepository<News> News { get; }
         IDeletableEntityRepository<Programme> Programmes { get; }
-        IDeletableEntityRepository<Subject> Subjects { get; }
         IDeletableEntityRepository<Student> Students { get; }
         IDeletableEntityRepository<University> Universities { get; }
 
