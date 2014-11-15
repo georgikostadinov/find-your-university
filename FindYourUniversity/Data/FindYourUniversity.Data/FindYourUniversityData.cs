@@ -120,6 +120,14 @@ namespace FindYourUniversity.Data
         {
             get { return this.GetDeletableEntityRepository<StudentInfo>(); }
         }
+        public IDeletableEntityRepository<ApplicationDocumentType> ApplicationDocumentTypes
+        {
+            get { return this.GetDeletableEntityRepository<ApplicationDocumentType>(); }
+        }
+        public IDeletableEntityRepository<DocumentImage> DocumentImages
+        {
+            get { return this.GetDeletableEntityRepository<DocumentImage>(); }
+        }
 
         public int SaveChanges()
         {

@@ -26,6 +26,8 @@ namespace FindYourUniversity.Data
         IDeletableEntityRepository<Programme> Programmes { get; }
         IDeletableEntityRepository<Student> Students { get; }
         IDeletableEntityRepository<University> Universities { get; }
+        IDeletableEntityRepository<ApplicationDocumentType> ApplicationDocumentTypes { get; }
+        IDeletableEntityRepository<DocumentImage> DocumentImages { get; }
 
         int SaveChanges();
     }

@@ -25,6 +25,8 @@ namespace FindYourUniversity.Data
         IDbSet<Programme> Programmes { get; set; }
         IDbSet<Student> Students { get; set; }
         IDbSet<University> Universities { get; set; }
+        IDbSet<ApplicationDocumentType> ApplicationDocumentTypes { get; set; }
+        IDbSet<DocumentImage> DocumentImages { get; set; }
         int SaveChanges();
         void Dispose();
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

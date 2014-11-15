@@ -1,0 +1,11 @@
+﻿@model ICollection<FindYourUniversity.Data.Models.DocumentImage>
+
+@foreach (var document in Model.Where(d=>d.IsDeleted == false))
+{
+    <span>Тип на документа - @document.ApplicationDocumentType.Name</span>
+    @Html.Raw("<img src=\"data:image/jpeg;base64," + @Convert.ToBase64String(document.Image) + "\" width='350' />");
+    @Ajax.ActionLink("Изтрий", "DeleteById", "DocumentImages", 
+        new { id = document.Id },
+            new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "test"});
+}
+

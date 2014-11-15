@@ -1,14 +1,19 @@
 ﻿@model List<FindYourUniversity.Web.ViewModels.DocumentImageViewModel>
 
-@Ajax.ActionLink("Добави документ", 
+@{
+    ViewBag.Title = "DocumentsUpload";
+}
+
+
+@Ajax.ActionLink("Добави документ",
     "GetUploadForm",
     "StudentProfile",
-    new AjaxOptions() 
+    new AjaxOptions()
     {
         InsertionMode = InsertionMode.InsertAfter,
-        UpdateTargetId = "start" 
+        UpdateTargetId = "start"
     },
-    new { id = "addForm" })
+    new { @class = "btn btn-success" })
 
 @using (Html.BeginForm("Upload", "StudentProfile", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -16,3 +21,5 @@
 
     <input type="submit" value="Upload" />
 }
+
+
