@@ -10,7 +10,7 @@
         columns.ForeignKey(p => p.DegreeId, (System.Collections.IEnumerable)ViewData["degrees"], "Id", "Name").Width(220);
         columns.ForeignKey(p => p.FacultyId, (System.Collections.IEnumerable)ViewData["faculties"], "Id", "Name");
         columns.Bound(p => p.Description);
-        columns.Template(p => @Html.ActionLink("Преглед на курсовете...", "Index", "Courses", new { progId = p.Id }));
+        //columns.Template(p => @Html.ActionLink("Преглед на курсовете...", "Index", "Courses", new { progId = p.Id }));
         columns.Command(command => command.Destroy().Text("Изтриване")).Title("Изтриване").Width(110);
         columns.Command(command => command.Edit().Text("Промяна")).Title("Промяна").Width(100);
     })
@@ -22,6 +22,7 @@
     .Filterable()
     .Groupable()
     .Sortable()    
+    .Resizable(c=>c.Columns(true))
     .Pageable()
     .DataSource(dataSource => dataSource
         .Ajax()

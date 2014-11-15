@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@Ajax.ActionLink("По име", "GroupedByName", "Universities", 
+    new AjaxOptions() 
+    {
+        UpdateTargetId="universities",
+        InsertionMode = InsertionMode.Replace
+    })
+@Ajax.ActionLink("По град", "GroupedByCity", "Universities",
+    new AjaxOptions()
+    {
+        UpdateTargetId = "universities",
+        InsertionMode = InsertionMode.Replace
+    })
+
+<div id="universities"></div>
+

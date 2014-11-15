@@ -1,0 +1,10 @@
+﻿@model IEnumerable<FindYourUniversity.Web.ViewModels.UniversitiesGroupedByCityViewModel>
+
+@foreach (var group in Model)
+{
+    <h3>@group.CityName</h3>
+    foreach (var university in group.Universities)
+    {
+        @Html.ActionLink(university.Name, "Details", "Universities", new { Id = university.Id }, null)
+    }
+}

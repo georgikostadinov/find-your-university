@@ -212,6 +212,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentProfileController.cs" />
+    <Compile Include="Controllers\UniversitiesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,6 +223,8 @@
     <Compile Include="ViewModels\ApplicationDocumentTypeViewModel.cs" />
     <Compile Include="ViewModels\DocumentImageViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
+    <Compile Include="ViewModels\UniversitiesGroupedByCityViewModel.cs" />
+    <Compile Include="ViewModels\UniversitiesGroupedByLetterViewModel.cs" />
     <Compile Include="ViewModels\UniversityViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1315,6 +1318,9 @@
     <Content Include="Views\StudentProfile\_DocumentsEditor.cshtml" />
     <Content Include="Views\Shared\_StudentMenu.cshtml" />
     <Content Include="Views\Shared\_UniversityMenu.cshtml" />
+    <Content Include="Views\Universities\_GroupedByName.cshtml" />
+    <Content Include="Views\Universities\Index.cshtml" />
+    <Content Include="Views\Universities\_GroupedByCity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

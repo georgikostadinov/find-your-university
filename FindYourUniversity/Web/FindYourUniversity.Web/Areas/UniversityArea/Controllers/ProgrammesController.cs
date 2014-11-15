@@ -27,7 +27,9 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         public ActionResult Index()
         {           
             ViewData["degrees"] = this.Data.Degrees.All().ToArray();
-            var faculties = this.Data.Faculties.All().Select(f => new 
+            var faculties = this.Data.Faculties.All()
+                .Where(faculty=>faculty.UniversityId == this.CurrentUniversity.Id)
+                .Select(f => new 
             {
                 Id = f.Id,
                 Name = f.Name
@@ -41,7 +43,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
             var programmes = this.Data.Programmes.All()
-                .Where(p => p.Faculty.University.Id == this.CurrentUniversity.Id)
+                .Where(p => p.University.Id == this.CurrentUniversity.Id)
                 .Project().To<ProgrammeViewModel>();
 
             return Json(programmes.ToDataSourceResult(request));
