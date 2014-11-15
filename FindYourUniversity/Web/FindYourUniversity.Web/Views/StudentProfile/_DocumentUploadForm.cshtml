@@ -1,0 +1,4 @@
+﻿@model int
+
+<input type="text" name="@("[" + Model + "].DocumentTypeId")" />
+@(Html.Kendo().Upload().Name("[" + Model + "].Image"))

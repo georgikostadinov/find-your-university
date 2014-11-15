@@ -15,7 +15,6 @@ namespace FindYourUniversity.Web.Controllers
         public StudentProfileController(IFindYourUniversityData data)
             : base(data)
         {
- 
         }
 
         public JsonResult GetCities()
@@ -57,6 +56,33 @@ namespace FindYourUniversity.Web.Controllers
             this.Data.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+
+        public ActionResult DocumentsUpload()
+        {
+            return View();
+        }
+
+        public ActionResult GetUploadForm()
+        {
+            if (TempData["count"] != null)
+            {
+                var counter = int.Parse(TempData["count"].ToString()) + 1;
+                TempData["count"] = counter;
+                return PartialView("_DocumentUploadForm", counter);
+            }
+            else
+            {
+                TempData["count"] = 0;
+                return PartialView("_DocumentUploadForm", 0);
+            }
+        }
+
+
+        public ActionResult Upload(IEnumerable<DocumentImageViewModel> images)
+        {
+            return null;
         }
     }
 }

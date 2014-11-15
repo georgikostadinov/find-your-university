@@ -1,0 +1,18 @@
+﻿@model List<FindYourUniversity.Web.ViewModels.DocumentImageViewModel>
+
+@Ajax.ActionLink("Добави документ", 
+    "GetUploadForm",
+    "StudentProfile",
+    new AjaxOptions() 
+    {
+        InsertionMode = InsertionMode.InsertAfter,
+        UpdateTargetId = "start" 
+    },
+    new { id = "addForm" })
+
+@using (Html.BeginForm("Upload", "StudentProfile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <span id="start"></span>
+
+    <input type="submit" value="Upload" />
+}
