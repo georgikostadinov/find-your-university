@@ -18,7 +18,7 @@ namespace FindYourUniversity.Web.Controllers
             var document = this.Data.DocumentImages.GetById(id);
             this.Data.DocumentImages.Delete(document);
             this.Data.SaveChanges();
-            return Content("da");
+            return null;
         }
 
     }

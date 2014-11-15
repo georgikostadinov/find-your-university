@@ -1,34 +1,35 @@
 ﻿@model FindYourUniversity.Web.Areas.UniversityArea.ViewModels.ContactInfoViewModel
+    @using (@Ajax.BeginForm("Update", "ContactInfo",
+    new AjaxOptions()
+    {
+        InsertionMode = InsertionMode.Replace
+    }, new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
 
-@using (@Ajax.BeginForm("Update", "ContactInfo", 
-    new AjaxOptions() 
-    {        
-        InsertionMode= InsertionMode.Replace
-    }, new { @class= "form" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.HiddenFor(c => c.Id)
+        <div class="form-group">
+            @Html.LabelFor(c => c.CityId)
+        @(Html.Kendo().DropDownListFor(c => c.CityId)
+            .DataSource(source => source.Read(read => read.Action("GetCities", "ContactInfo")))
+            .DataTextField("Name")
+            .DataValueField("Id"))
+    </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Address)
+            @Html.TextBoxFor(c => c.Address, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Email)
+            @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Telephone)
+            @Html.TextBoxFor(c => c.Telephone, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Website)
+            @Html.TextBoxFor(c => c.Website, new { @class = "form-control" })
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(c => c.City)
-        @Html.DropDownListFor(c => c.CityId, Model.CitiesList, "Изберете град")
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(c => c.Address)
-        @Html.TextBoxFor(c => c.Address, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(c => c.Email)
-        @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(c => c.Telephone)
-        @Html.TextBoxFor(c => c.Telephone, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(c => c.Website)
-        @Html.TextBoxFor(c => c.Website, new { @class = "form-control" })
-    </div>
-
-    <input type="submit" value="Update" class="btn btn-info" />
-}
+        <input type="submit" value="Update" class="btn btn-info" />
+    }

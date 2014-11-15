@@ -5,7 +5,6 @@
     @using (Html.BeginForm("Update", "CommonInfo", FormMethod.Post, new { @class = "form col-md-5", enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken();
-        @Html.HiddenFor(u => u.Id);
         <div class="form-group">
             @Html.LabelFor(u => u.Name)
             @Html.TextBoxFor(u => u.Name, new { @class = "form-control" })

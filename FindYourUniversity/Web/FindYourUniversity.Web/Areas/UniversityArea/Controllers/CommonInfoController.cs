@@ -59,7 +59,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
                         }
                     }
                 }
-                var info = this.Data.UniversityInfos.GetById(model.Id);
+                var info = this.Data.UniversityInfos.GetById(this.CurrentUser.Id);
                 Mapper.Map<UniversityInfoViewModel, UniversityInfo>(model, info);
                 if (model.PictureUrl != null)
                 {

@@ -18,8 +18,8 @@ namespace FindYourUniversity.Web
 
         private static void RegisterStyles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css"));
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //          "~/Content/bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
                 "~/Content/kendo/kendo.common.min.css",
@@ -28,6 +28,15 @@ namespace FindYourUniversity.Web
 
             bundles.Add(new StyleBundle("~/Content/custom").Include(
                 "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/css/animate.min.css",
+                "~/Content/css/font-awesome.min.css",
+                "~/Content/css/main.css",
+                "~/Content/css/prettyPhoto.css",
+                "~/Content/css/responsive.css"
+                ));
         }
 
         private static void RegisterScripts(BundleCollection bundles)
@@ -53,6 +62,13 @@ namespace FindYourUniversity.Web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/theme").Include(
+                    "~/Content/js/jquery.prettyPhoto.js",
+                    "~/Content/js/jquery.isotope.min.js",
+                    "~/Content/js/main.js",
+                    "~/Content/js/wow.min.js"
+                ));
 
         }
     }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 {
@@ -20,45 +21,47 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 
         public ActionResult Index()
         {
-            var info = this.CurrentUniversity.UniversityInfo;
+            var info = this.Data.UniversityContactInfos.GetById(this.CurrentUniversity.Id);
             if (info == null)
             {
-                return View();
+                var uniId = this.User.Identity.GetUserId();
+                var uni = this.Data.Universities.All().Where(u => u.Id == uniId).FirstOrDefault();
+                uni.ContactInfo = new UniversityContactInfo();
+                //uni.UniversityInfo.ContactInfo = new ContactInfo();
+                this.Data.SaveChanges();
+                info = uni.ContactInfo;
             }
-            //var contacts = this.CurrentUniversity.UniversityInfo.ContactInfo;
-            //var contactsModel = Mapper.Map<ContactInfo, ContactInfoViewModel>(contacts);
-            //contactsModel.CitiesList = this.GetCitiesSelectList();
-            //return View(contactsModel);
-            return View();
+            var model = Mapper.Map<UniversityContactInfo, ContactInfoViewModel>(info);
+            return View(model);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Update(ContactInfoViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var contact = this.Data.ContactInfos.GetById(model.Id);
-        //        Mapper.Map<ContactInfoViewModel, ContactInfo>(model, contact);
-        //        this.Data.ContactInfos.Update(contact);
-        //        this.Data.SaveChanges();
-        //    }
-
-        //    model.CitiesList = this.GetCitiesSelectList();
-        //    return RedirectToAction("Index");
-        //}
-
-        private IEnumerable<SelectListItem> GetCitiesSelectList()
+        public JsonResult GetCities()
         {
-            IEnumerable<SelectListItem> selectList = this.Data.Cities
-                           .All()
-                           .Select(c => new SelectListItem()
-                           {
-                               Text = c.Name,
-                               Value = c.Id.ToString()
-                           });
+            var cities = this.Data.Cities
+                .All()
+                .Select(c => new
+                {
+                    Id = c.Id,
+                    Name = c.Name
+                })
+                .OrderBy(c=>c.Name);
 
-            return selectList;
+            return Json(cities, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(ContactInfoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var contact = this.Data.UniversityContactInfos.GetById(User.Identity.GetUserId());
+                Mapper.Map<ContactInfoViewModel, UniversityContactInfo>(model, contact);
+                this.Data.UniversityContactInfos.Update(contact);
+                this.Data.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated && User.IsInRole("University"))
+{
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Администрация <i class="fa fa-angle-down"></i></a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Обща информация", "Index", "CommonInfo", new { area = "UniversityArea" }, null)</li>
+            <li>@Html.ActionLink("Контакти", "Index", "ContactInfo", new { area = "UniversityArea" }, null)</li>
+            <li>@Html.ActionLink("Факултети", "Index", "Faculties", new { area = "UniversityArea" }, null)</li>
+            <li>@Html.ActionLink("Специалности", "Index", "Programmes", new { area = "UniversityArea" })</li>
+            <li>@Html.ActionLink("Курсове", "Index", "Courses", new { area = "UniversityArea" })</li>
+        </ul>
+    </li>
+}
