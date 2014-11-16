@@ -1,7 +1,7 @@
 ﻿@using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-md-offset-3">
         @(Html.Kendo()
     .Grid<FacultyViewModel>()
     .Name("grid")
@@ -12,8 +12,8 @@
         col.Bound(u => u.UniversityId).Hidden();
         col.Bound(u => u.CreatedOn).Hidden();
         col.Bound(u => u.ModifiedOn).Hidden();
-        col.Command(command => command.Edit()).Title("Промяна").Width(100);
-        col.Command(command => command.Destroy()).Title("Изтриване").Width(120);
+        col.Command(command => command.Edit().Text("Промяна")).Title("Промяна").Width(100);
+        col.Command(command => command.Destroy().Text("Изтриване")).Title("Изтриване").Width(120);
     })
     .Sortable()
     .Pageable()

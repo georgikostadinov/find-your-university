@@ -96,6 +96,7 @@
             .Update(update => update.Action("Update", "Courses"))
             .Create(create => create.Action("Create", "Courses").Data("selectedProgrammeId"))
             .Destroy(destroy => destroy.Action("Destroy", "Courses"))
+            .Group(group=>group.Add(col=>col.Semester))
     ))
 
 <script>

@@ -1,19 +1,17 @@
 ﻿@model FindYourUniversity.Web.Areas.UniversityArea.ViewModels.ContactInfoViewModel
-    @using (@Ajax.BeginForm("Update", "ContactInfo",
-    new AjaxOptions()
-    {
-        InsertionMode = InsertionMode.Replace
-    }, new { @class = "form" }))
+
+<div class="row">
+    @using (@Html.BeginForm("Update", "ContactInfo", FormMethod.Post, new { @class = "form col-md-4 col-md-offset-3" }))
     {
         @Html.AntiForgeryToken()
 
         <div class="form-group">
             @Html.LabelFor(c => c.CityId)
-        @(Html.Kendo().DropDownListFor(c => c.CityId)
+            @(Html.Kendo().DropDownListFor(c => c.CityId)
             .DataSource(source => source.Read(read => read.Action("GetCities", "ContactInfo")))
             .DataTextField("Name")
-            .DataValueField("Id"))
-    </div>
+            .DataValueField("Id").HtmlAttributes(new { style = "width:100%" }))
+        </div>
         <div class="form-group">
             @Html.LabelFor(c => c.Address)
             @Html.TextBoxFor(c => c.Address, new { @class = "form-control" })
@@ -21,6 +19,7 @@
         <div class="form-group">
             @Html.LabelFor(c => c.Email)
             @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Email)
         </div>
         <div class="form-group">
             @Html.LabelFor(c => c.Telephone)
@@ -30,6 +29,8 @@
             @Html.LabelFor(c => c.Website)
             @Html.TextBoxFor(c => c.Website, new { @class = "form-control" })
         </div>
-
-        <input type="submit" value="Update" class="btn btn-info" />
+        <div class="text-center">
+            <input type="submit" value="Обнови" class="btn btn-primary" />
+        </div>
     }
+</div>

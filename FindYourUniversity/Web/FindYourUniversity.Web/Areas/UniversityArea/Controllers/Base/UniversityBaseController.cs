@@ -1,14 +1,12 @@
-﻿using FindYourUniversity.Data;
-using FindYourUniversity.Data.Models;
-using FindYourUniversity.Web.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base
+﻿namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base
 {
+    using System.Web.Mvc;
+
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Data.Models;
+    using FindYourUniversity.Web.Controllers;
+
+    [Authorize(Roles = "University")]
     public abstract class UniversityBaseController : BaseController
     {
         protected UniversityBaseController(IFindYourUniversityData data)

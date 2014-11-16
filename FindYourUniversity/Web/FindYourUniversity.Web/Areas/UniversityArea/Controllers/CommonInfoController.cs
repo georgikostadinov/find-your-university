@@ -1,19 +1,19 @@
-﻿using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using FindYourUniversity.Common.Extensions;
-using FindYourUniversity.Data;
-using AutoMapper;
-using FindYourUniversity.Data.Models;
-using Microsoft.AspNet.Identity;
-using FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base;
-
-namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
+﻿namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 {
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
+
+    using AutoMapper;
+
+    using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
+    using FindYourUniversity.Common.Extensions;
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Data.Models;
+    using FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base;
+
     public class CommonInfoController : UniversityBaseController
     {
         public CommonInfoController(IFindYourUniversityData data)
@@ -84,7 +84,6 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
                 var uniId = this.User.Identity.GetUserId();
                 var uni = this.Data.Universities.All().Where(u => u.Id == uniId).FirstOrDefault();
                 uni.UniversityInfo = new UniversityInfo();
-                //uni.UniversityInfo.ContactInfo = new ContactInfo();
                 this.Data.SaveChanges();
                 info = uni.UniversityInfo;
             }

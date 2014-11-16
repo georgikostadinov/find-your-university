@@ -205,7 +205,6 @@
     <Compile Include="Areas\UniversityArea\ViewModels\FacultyViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\ProgrammeViewModel.cs" />
     <Compile Include="Areas\UniversityArea\ViewModels\UniversityInfoViewModel.cs" />
-    <Compile Include="Areas\UniversityArea\ViewModels\UniversityViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DocumentImagesController.cs" />
@@ -663,6 +662,8 @@
     <Content Include="Content\images\service\Thumbs.db" />
     <Content Include="Content\images\slider\Thumbs.db" />
     <Content Include="Content\images\Thumbs.db" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\Description.cshtml" />
+    <Content Include="Areas\UniversityArea\Views\Shared\EditorTemplates\TextBoxField.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Images\default-university.jpg" />
     <Content Include="Scripts\bootstrap.js" />

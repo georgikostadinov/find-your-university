@@ -7,15 +7,15 @@
 }
 
 <ul class="nav nav-tabs nav-justified" role="tablist" id="menu">
-    <li role="presentation">
+    <li role="presentation" class="@Html.IsSelected(controller: "CommonInfo", action: "Index")">
         @Html.ActionLink("Обща информация", "Index", "CommonInfo")
     </li>
-    <li role="presentation">
+    <li role="presentation" class="@Html.IsSelected(controller: "ContactInfo", action: "Index")">
         @Html.ActionLink("Контакти", "Index", "ContactInfo")
     </li>
-    <li role="presentation">@Html.ActionLink("Факултети", "Index", "Faculties")</li>
-    <li role="presentation">@Html.ActionLink("Специалности", "Index", "Programmes")</li>
-    <li role="presentation">@Html.ActionLink("Курсове", "Index", "Courses")</li>
+    <li role="presentation" class="@Html.IsSelected(controller: "Faculties", action: "Index")">@Html.ActionLink("Факултети", "Index", "Faculties")</li>
+    <li role="presentation" class="@Html.IsSelected(controller: "Programmes", action: "Index")">@Html.ActionLink("Специалности", "Index", "Programmes")</li>
+    <li role="presentation" class="@Html.IsSelected(controller: "Courses", action: "Index")">@Html.ActionLink("Курсове", "Index", "Courses")</li>
     <li role="presentation"><a href="#">Получени документи</a></li>
 </ul>
 

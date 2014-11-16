@@ -1,29 +1,40 @@
 ﻿@model FindYourUniversity.Web.Areas.UniversityArea.ViewModels.UniversityInfoViewModel
 
 <div class="row">
-
-    @using (Html.BeginForm("Update", "CommonInfo", FormMethod.Post, new { @class = "form col-md-5", enctype = "multipart/form-data" }))
+    <br />
+    @using (Html.BeginForm("Update", "CommonInfo", FormMethod.Post, new { @class = "form col-md-6", enctype = "multipart/form-data" }))
     {
-        @Html.AntiForgeryToken();
-        <div class="form-group">
+        @Html.AntiForgeryToken()
+        <div class="form-group-lg">
             @Html.LabelFor(u => u.Name)
             @Html.TextBoxFor(u => u.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(u => u.Name)
         </div>
-        <div class="form-group">
+        <div class="form-group-lg">
             @Html.LabelFor(u => u.Information)
-            @Html.TextAreaFor(u => u.Information, new { @class = "form-control", rows = "10", cols = "450" })
+            @Html.TextAreaFor(u => u.Information, new { @class = "form-control", rows = "15" })
         </div>
         if (this.Model == null || this.Model.PictureUrl == null)
         {
-            <p class="help-block">Все още нямате качено изображение</p>
+            <p class="help-block">Все още няма качено изображение</p>
+        }
+        else
+        {
+            <p class="help-block">Смяна на изображението</p>
         }
         <input type="file" name="Image" id="Images" />
         <input type="submit" value="Обнови" class="btn btn-primary" />
     }
-    <div class="col-md-7">
+    <div class="col-md-6">
+        <div class="text-center">
+            <label><strong>Изображение</strong></label>
+        </div>
         @if (this.Model != null && this.Model.PictureUrl != null)
         {
-            <img src="@this.Model.PictureUrl" alt="picture" class="img-thumbnail" width="400" />
+            <img src="@this.Model.PictureUrl" alt="picture" class="img-thumbnail img-responsive" />
         }
     </div>
 </div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
