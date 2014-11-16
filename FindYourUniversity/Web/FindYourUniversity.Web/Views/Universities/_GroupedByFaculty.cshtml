@@ -1,8 +1,8 @@
-﻿@model IEnumerable<FindYourUniversity.Web.ViewModels.UniversitiesGroupedByLetterViewModel>
+﻿@model IEnumerable<FindYourUniversity.Web.ViewModels.UniversitiesGroupedByFacultyViewModel>
 
 @foreach (var group in Model)
 {
-    <h3>@group.Letter</h3>
+    <h3>@group.FacultyName</h3>
     foreach (var university in group.Universities)
     {
         <div>

@@ -224,7 +224,9 @@
     <Compile Include="ViewModels\DocumentImageViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\UniversitiesGroupedByCityViewModel.cs" />
+    <Compile Include="ViewModels\UniversitiesGroupedByFacultyViewModel.cs" />
     <Compile Include="ViewModels\UniversitiesGroupedByLetterViewModel.cs" />
+    <Compile Include="ViewModels\UniversitySliderViewModel.cs" />
     <Compile Include="ViewModels\UniversityViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -658,6 +660,7 @@
     <Content Include="Content\images\slider\Thumbs.db" />
     <Content Include="Content\images\Thumbs.db" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Images\default-university.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -1321,11 +1324,12 @@
     <Content Include="Views\Universities\_GroupedByName.cshtml" />
     <Content Include="Views\Universities\Index.cshtml" />
     <Content Include="Views\Universities\_GroupedByCity.cshtml" />
+    <Content Include="Views\Universities\_GroupedByFaculty.cshtml" />
+    <Content Include="Views\Home\_UniversitiesSlider.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\UniversityArea\Images\" />
-    <Folder Include="Images\" />
     <Folder Include="Views\DocumentImages\" />
   </ItemGroup>
   <ItemGroup>

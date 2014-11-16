@@ -56,5 +56,23 @@ namespace FindYourUniversity.Web.Controllers
 
             return PartialView("_GroupedByCity", models);
         }
+
+        public ActionResult GroupedByFaculty()
+        {
+            var models = this.Data.Faculties
+                .All()
+                .GroupBy(f=>f.Name)
+                .Select(group => new UniversitiesGroupedByFacultyViewModel()
+                {
+                    FacultyName = group.Key,
+                    Universities = group.Select(faculty => new UniversityViewModel()
+                    {
+                        Id = faculty.UniversityId,
+                        Name = faculty.University.UniversityInfo.Name
+                    })
+                });
+
+            return PartialView("_GroupedByFaculty", models);
+        }
     }
 }

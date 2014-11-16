@@ -6,20 +6,34 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
+using FindYourUniversity.Data;
+using FindYourUniversity.Web.ViewModels;
 
 namespace FindYourUniversity.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private IRepository<University> users;
-        public HomeController(IRepository<University> users)
+        public HomeController(IFindYourUniversityData data)
+            : base(data)
         {
-            this.users = users;
         }
 
         public ActionResult Index()
-        {
+        {            
             return View();
+        }
+
+        public ActionResult UniversitiesSlider()
+        {
+            var universities = this.Data.Universities.All().Take(3).Select(u => new UniversitySliderViewModel()
+            {
+                Id = u.Id,
+                Name = u.UniversityInfo.Name,
+                Description = u.UniversityInfo.Information.Substring(0, 100),
+                PictureUrl = u.PictureUrl
+            });
+
+            return PartialView("_UniversitiesSlider", universities);
         }
 
         public ActionResult About()

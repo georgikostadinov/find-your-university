@@ -16,5 +16,12 @@
         InsertionMode = InsertionMode.Replace
     })
 
-<div id="universities"></div>
+@Ajax.ActionLink("По дисциплини", "GroupedByFaculty", "Universities",
+    new AjaxOptions()
+    {
+        UpdateTargetId = "universities",
+        InsertionMode = InsertionMode.Replace
+    })
+
+<div id="universities">@Html.Action("GroupedByName")</div>
 

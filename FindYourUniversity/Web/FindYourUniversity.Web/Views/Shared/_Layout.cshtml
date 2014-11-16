@@ -27,14 +27,12 @@
 
             <div class="collapse navbar-collapse navbar-left">
                 <ul class="nav navbar-nav">
-
-                    <li class="@Html.IsSelected(action: "Index")">@Html.ActionLink("Начало", "Index", "Home")</li>
-                    <li class="@Html.IsSelected(action: "Contact")">@Html.ActionLink("Контакти", "Contact", "Home")</li>
-                    <li class="@Html.IsSelected(controller: "Universities", action: "Index")">@Html.ActionLink("Университети", "Index", "Universities")</li>
+                    <li class="@Html.IsSelected(controller:"Home", action: "Index")">@Html.ActionLink("Начало", "Index", "Home")</li>
+                    <li class="@Html.IsSelected(controller:"Home", action: "Contact")">@Html.ActionLink("Контакти", "Contact", "Home")</li>
+                    <li class="@Html.IsSelected(controller: "Universities", action: "Index")">@Html.ActionLink("Университети", "Index", "Universities", new { area=string.Empty }, null)</li>
                     <li class="@Html.IsSelected(controller: "Students", action: "Index")">@Html.ActionLink("Студенти", "Index", "Students")</li>
                     @Html.Partial("_UniversityMenu")
                     @Html.Partial("_StudentMenu")
-                    <li><a href="contact-us.html">Contact</a></li>
                 </ul>
             </div>
             
