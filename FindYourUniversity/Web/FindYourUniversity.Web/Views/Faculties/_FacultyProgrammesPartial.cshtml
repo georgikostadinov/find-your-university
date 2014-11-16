@@ -1,0 +1,8 @@
+﻿@model IEnumerable<FindYourUniversity.Web.ViewModels.ProgrammeLinkViewModel>
+
+<ul class="nav">
+    @foreach (var item in @Model)
+    {
+        <li>@Html.ActionLink(item.Name, "Details", "Programmes", new { id = item.Id }, null)</li>
+    }
+</ul>

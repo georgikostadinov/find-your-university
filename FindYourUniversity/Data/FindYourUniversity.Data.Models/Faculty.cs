@@ -17,6 +17,6 @@ namespace FindYourUniversity.Data.Models
         public string Name { get; set; }
         public string UniversityId { get; set; }
         public virtual University University { get; set; }
-        public ICollection<Programme> Programmes { get; set; }
+        public virtual ICollection<Programme> Programmes { get; set; }
     }
 }

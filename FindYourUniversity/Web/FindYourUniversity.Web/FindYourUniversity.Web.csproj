@@ -209,6 +209,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DocumentImagesController.cs" />
+    <Compile Include="Controllers\FacultiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentProfileController.cs" />
@@ -222,10 +223,13 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationDocumentTypeViewModel.cs" />
     <Compile Include="ViewModels\DocumentImageViewModel.cs" />
+    <Compile Include="ViewModels\FacultyLinkViewModel.cs" />
+    <Compile Include="ViewModels\ProgrammeLinkViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\UniversitiesGroupedByCityViewModel.cs" />
     <Compile Include="ViewModels\UniversitiesGroupedByFacultyViewModel.cs" />
     <Compile Include="ViewModels\UniversitiesGroupedByLetterViewModel.cs" />
+    <Compile Include="ViewModels\UniversityDetailsViewModel.cs" />
     <Compile Include="ViewModels\UniversitySliderViewModel.cs" />
     <Compile Include="ViewModels\UniversityViewModel.cs" />
   </ItemGroup>
@@ -1326,11 +1330,12 @@
     <Content Include="Views\Universities\_GroupedByCity.cshtml" />
     <Content Include="Views\Universities\_GroupedByFaculty.cshtml" />
     <Content Include="Views\Home\_UniversitiesSlider.cshtml" />
+    <Content Include="Views\Universities\Details.cshtml" />
+    <Content Include="Views\Faculties\_FacultyProgrammesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\UniversityArea\Images\" />
-    <Folder Include="Views\DocumentImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

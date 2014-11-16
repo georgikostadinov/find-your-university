@@ -1,0 +1,61 @@
+﻿@model FindYourUniversity.Web.ViewModels.UniversityDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1 class="text-center text-muted">@Model.Name</h1>
+<br />
+
+<div class="row">
+        <img class="img-responsive" align="left" style="margin:20px" src="@(Model.PictureUrl == null ? "~/Images/default-university.jpg" : Model.PictureUrl)" />
+
+        <span class="text-justify">@Model.Information</span>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-md-offset-2">
+        <h2><strong>Факултети</strong></h2>
+        <ul class="nav">
+            @foreach (var faculty in @Model.Faculties)
+            {
+                <li>
+                    @Ajax.ActionLink(faculty.Name, "GetProgrammesPartial", "Faculties", new { facultyId = faculty.Id },
+                    new AjaxOptions()
+                       {
+                           InsertionMode = InsertionMode.Replace,
+                           UpdateTargetId = "programmes"
+                       })
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-5">
+        <h2><strong>Специалности</strong></h2>
+        <div id="programmes">
+            @if (@Model.Faculties.Count() > 0)
+            {
+                @Html.Action("GetProgrammesPartial", "Faculties", new { facultyId = @Model.Faculties.FirstOrDefault().Id })
+            }
+        </div>
+    </div>
+</div>
+<br />
+<hr />
+<div class="row">
+    <div class="col-md-3">
+        @Html.LabelFor(u => u.Address)
+        <p>@Model.Address</p>
+    </div>
+    <div class="col-md-3">
+        @Html.LabelFor(u => u.PhoneNumber)
+        <p>@Model.PhoneNumber</p>
+    </div>
+    <div class="col-md-3">
+        @Html.LabelFor(u => u.Website)
+        <p><a href="@Model.Website">@Model.Website</a></p>
+    </div>
+    <div class="col-md-3">
+        @Html.LabelFor(u => u.Email)
+        <p>@Model.Email</p>
+    </div>
+</div>

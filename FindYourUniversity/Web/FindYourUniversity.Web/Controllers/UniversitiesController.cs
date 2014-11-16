@@ -1,4 +1,6 @@
-﻿using FindYourUniversity.Data;
+﻿using AutoMapper;
+using FindYourUniversity.Data;
+using FindYourUniversity.Data.Models;
 using FindYourUniversity.Web.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -73,6 +75,14 @@ namespace FindYourUniversity.Web.Controllers
                 });
 
             return PartialView("_GroupedByFaculty", models);
+        }
+
+        public ActionResult Details(string id)
+        {
+            var university = this.Data.Universities.GetById(id);
+            // TODO: Message if not fount
+            var model = Mapper.Map<University, UniversityDetailsViewModel>(university);
+            return View(model);
         }
     }
 }
