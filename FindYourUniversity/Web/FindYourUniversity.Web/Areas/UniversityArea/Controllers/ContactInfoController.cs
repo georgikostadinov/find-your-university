@@ -1,17 +1,17 @@
-﻿using AutoMapper;
-using FindYourUniversity.Data;
-using FindYourUniversity.Data.Models;
-using FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base;
-using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-
-namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
+﻿namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper;
+
+    using Microsoft.AspNet.Identity;
+
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Data.Models;
+    using FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base;
+    using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
+
     public class ContactInfoController : UniversityBaseController
     {
         public ContactInfoController(IFindYourUniversityData data) 
@@ -27,7 +27,6 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
                 var uniId = this.User.Identity.GetUserId();
                 var uni = this.Data.Universities.All().Where(u => u.Id == uniId).FirstOrDefault();
                 uni.ContactInfo = new UniversityContactInfo();
-                //uni.UniversityInfo.ContactInfo = new ContactInfo();
                 this.Data.SaveChanges();
                 info = uni.ContactInfo;
             }

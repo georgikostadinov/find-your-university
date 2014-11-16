@@ -94,7 +94,6 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
             return Json(courses.ToDataSourceResult(request));
         }
 
-
         [HttpPost]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, CourseViewModel model, int ProgId)
         {

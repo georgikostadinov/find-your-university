@@ -13,6 +13,7 @@
         <div class="form-group-lg">
             @Html.LabelFor(u => u.Information)
             @Html.TextAreaFor(u => u.Information, new { @class = "form-control", rows = "15" })
+            @Html.ValidationMessageFor(u=>u.Information)
         </div>
         if (this.Model == null || this.Model.PictureUrl == null)
         {

@@ -38,6 +38,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, [Bind(Include = "Id, Name")] FacultyViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -52,6 +53,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, FacultyViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -67,6 +69,7 @@ namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, [Bind(Include = "Id")] FacultyViewModel model)
         {
             if (model != null && ModelState.IsValid)
