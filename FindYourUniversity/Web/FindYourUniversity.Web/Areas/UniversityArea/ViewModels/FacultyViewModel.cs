@@ -15,8 +15,9 @@
         public int Id { get; set; }
 
         [Display(Name = "Име на факултета")]
-        [MinLength(5)]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Името на факултета е задължително поле")]
+        [MinLength(5, ErrorMessage = "Името на факултета не може бъде по-малко от 5 символа")]
+        [MaxLength(100, ErrorMessage = "Името на факултета не може бъде повече от 100 символа")]
         public string Name { get; set; }
 
         [HiddenInput(DisplayValue = false)]

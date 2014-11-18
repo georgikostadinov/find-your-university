@@ -1,4 +1,8 @@
 ﻿
+@{
+    ViewBag.Title = "Курсове";
+}
+
 <div class="row text-center">
     <div>
         @(Html.Kendo().DropDownList()
@@ -60,11 +64,12 @@
         )
     </div>
 </div>
+@Html.AntiForgeryToken()
 
 @(Html.Kendo()
     .Grid<FindYourUniversity.Web.Areas.UniversityArea.ViewModels.CourseViewModel>()
         .Name("coursesGrid")
-        
+
     .Columns(columns =>
     {
         columns.Bound(p => p.Id).Hidden();
@@ -93,10 +98,10 @@
             model.Field(p => p.Id).Editable(false);
         })
             .Read(read => read.Action("Read", "Courses").Data("selectedProgrammeId"))
-            .Update(update => update.Action("Update", "Courses"))
+                    .Update(update => update.Action("Update", "Courses").Data("sendAntiForgery"))
             .Create(create => create.Action("Create", "Courses").Data("selectedProgrammeId"))
-            .Destroy(destroy => destroy.Action("Destroy", "Courses"))
-            .Group(group=>group.Add(col=>col.Semester))
+                .Destroy(destroy => destroy.Action("Destroy", "Courses").Data("sendAntiForgery"))
+            .Group(group => group.Add(col => col.Semester))
     ))
 
 <script>
@@ -107,6 +112,9 @@
         };
     };
 
+    function sendAntiForgery() {
+        return { "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() }
+    }
 
     function filterFaculties() {
         return {

@@ -49,6 +49,8 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, ProgrammeViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -64,6 +66,8 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ProgrammeViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -79,11 +83,13 @@
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, [Bind(Include = "Id")] ProgrammeViewModel model)
         {
-            if (model != null && ModelState.IsValid)
+            if (model != null)
             {
                 var programmeToDelete = this.Data.Programmes.GetById(model.Id);
+                base.DeleteCourses(model.Id);
                 this.Data.Programmes.Delete(programmeToDelete);
                 this.Data.SaveChanges();
             }

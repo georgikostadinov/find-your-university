@@ -1,5 +1,9 @@
 ﻿@model FindYourUniversity.Web.Areas.UniversityArea.ViewModels.UniversityInfoViewModel
 
+@{
+    ViewBag.Title = "Обща информация";
+}
+
 <div class="row">
     <br />
     @using (Html.BeginForm("Update", "CommonInfo", FormMethod.Post, new { @class = "form col-md-6", enctype = "multipart/form-data" }))
@@ -36,6 +40,3 @@
         }
     </div>
 </div>
-@section scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

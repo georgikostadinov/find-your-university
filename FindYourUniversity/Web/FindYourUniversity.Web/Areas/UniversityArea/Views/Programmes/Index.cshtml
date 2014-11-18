@@ -1,4 +1,10 @@
 ﻿@using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
+@{
+    ViewBag.Title = "Специалности";
+}
+
+
+@Html.AntiForgeryToken()
 
 @(Html.Kendo()
     .Grid<ProgrammeViewModel>()
@@ -18,11 +24,11 @@
         {
             toolBar.Create().Text("Добавяне на специалност");
         })
-    .Editable(editable => editable.Mode(GridEditMode.PopUp).Window(w=>w.Height(600).Width(750)))
+    .Editable(editable => editable.Mode(GridEditMode.PopUp).Window(w => w.Height(600).Width(750)))
     .Filterable()
     .Groupable()
-    .Sortable()    
-    .Resizable(c=>c.Columns(true))
+    .Sortable()
+    .Resizable(c => c.Columns(true))
     .Pageable()
     .DataSource(dataSource => dataSource
         .Ajax()
@@ -34,8 +40,14 @@
             model.Field(p => p.FacultyId).DefaultValue(1);
         })
         .Read(read => read.Action("Read", "Programmes"))
-            .Update(update => update.Action("Update", "Programmes"))
-            .Create(create => create.Action("Create", "Programmes"))
-            .Destroy(destroy => destroy.Action("Destroy", "Programmes"))
+                .Update(update => update.Action("Update", "Programmes").Data("sendAntiForgery"))
+                .Create(create => create.Action("Create", "Programmes").Data("sendAntiForgery"))
+                .Destroy(destroy => destroy.Action("Destroy", "Programmes").Data("sendAntiForgery"))
     )
 )
+
+<script type="text/javascript">
+    function sendAntiForgery() {
+        return { "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() }
+    }
+</script>

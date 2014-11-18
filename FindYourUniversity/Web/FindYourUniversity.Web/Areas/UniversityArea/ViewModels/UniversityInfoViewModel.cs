@@ -7,11 +7,14 @@
 
     using FindYourUniversity.Data.Models;
     using FindYourUniversity.Web.Infrastructure.Mapping;
-    public class UniversityInfoViewModel: IMapFrom<UniversityInfo>, IHaveCustomMappings
+    using System.Web.Mvc;
+
+
+    public class UniversityInfoViewModel : IMapFrom<UniversityInfo>, IHaveCustomMappings
     {
         [Display(Name = "Име на университета")]
         [Required(ErrorMessage = "Името на университета трябва да бъде поне 5 символа")]
-        [MinLength(5, ErrorMessage="Името на университета трябва да бъде поне 5 символа")]
+        [MinLength(5, ErrorMessage = "Името на университета трябва да бъде поне 5 символа")]
         [MaxLength(100, ErrorMessage = "Името на университета не трябва да бъде по-дълго от 100 символа")]
         public string Name { get; set; }
 

@@ -50,6 +50,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Update(ContactInfoViewModel model)
         {
             if (ModelState.IsValid)

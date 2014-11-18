@@ -95,6 +95,7 @@
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, CourseViewModel model, int ProgId)
         {
             if (model != null && ModelState.IsValid)
@@ -110,6 +111,8 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, CourseViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -124,9 +127,10 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, [Bind(Include = "Id")] CourseViewModel model)
         {
-            if (model != null && ModelState.IsValid)
+            if (model != null)
             {
                 var courseToDelete = this.Data.Courses.GetById(model.Id);
                 this.Data.Courses.Delete(courseToDelete);

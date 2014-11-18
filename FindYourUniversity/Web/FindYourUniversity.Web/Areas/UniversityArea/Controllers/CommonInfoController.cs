@@ -28,6 +28,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Update(UniversityInfoViewModel model)
         {
             if (model != null && ModelState.IsValid)

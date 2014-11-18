@@ -38,6 +38,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, [Bind(Include = "Id, Name")] FacultyViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -53,6 +54,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, FacultyViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -71,9 +73,10 @@
         [ValidateAntiForgeryToken]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, [Bind(Include = "Id")] FacultyViewModel model)
         {
-            if (model != null && ModelState.IsValid)
+            if (model != null)
             {
                 var facultyToDelete = this.Data.Faculties.GetById(model.Id);
+                base.DeleteProgrammes(model.Id);
                 this.Data.Faculties.Delete(facultyToDelete);
                 this.Data.SaveChanges();
             }
