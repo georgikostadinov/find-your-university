@@ -1,14 +1,7 @@
-﻿using FindYourUniversity.Data.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FindYourUniversity.Data.Models
+﻿namespace FindYourUniversity.Data.Models
 {
+    using System.Collections.Generic;
+
     public class Student : ApplicationUser
     {
         public Student()

@@ -52,12 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
-    <Compile Include="ApplicationDocumentType.cs" />
-    <Compile Include="ApplicationResponse.cs" />
+    <Compile Include="ApplicationModels\Application.cs" />
+    <Compile Include="ApplicationModels\ApplicationDocumentType.cs" />
+    <Compile Include="ApplicationModels\ApplicationResponse.cs" />
     <Compile Include="ImageDocument.cs" />
-    <Compile Include="StudentApplicationDetails.cs" />
-    <Compile Include="ApplicationStatus.cs" />
+    <Compile Include="ApplicationModels\StudentApplicationDetails.cs" />
+    <Compile Include="ApplicationModels\ApplicationStatus.cs" />
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Course.cs" />
@@ -68,7 +68,7 @@
     <Compile Include="Programme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
-    <Compile Include="StudentApplicationDocument.cs" />
+    <Compile Include="ApplicationModels\StudentApplicationDocument.cs" />
     <Compile Include="StudentContactInfo.cs" />
     <Compile Include="StudentInfo.cs" />
     <Compile Include="University.cs" />

@@ -1,12 +1,8 @@
-﻿using FindYourUniversity.Data.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FindYourUniversity.Data.Models
+﻿namespace FindYourUniversity.Data.Models
 {
+    using FindYourUniversity.Data.Common.Models;
+    using System.Collections.Generic;
+
     public class Faculty : DeletableEntity
     {
         public Faculty()

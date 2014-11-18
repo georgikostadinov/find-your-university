@@ -1,14 +1,11 @@
-﻿using FindYourUniversity.Data.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FindYourUniversity.Data.Models
+﻿namespace FindYourUniversity.Data.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    using FindYourUniversity.Data.Common.Models;
+
     public class StudentInfo : DeletableEntity
     {
         [Key, ForeignKey("Student")]

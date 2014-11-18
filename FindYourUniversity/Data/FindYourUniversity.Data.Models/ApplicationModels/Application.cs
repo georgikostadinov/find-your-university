@@ -1,13 +1,10 @@
-﻿using FindYourUniversity.Data.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FindYourUniversity.Data.Models
+﻿namespace FindYourUniversity.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
+    using FindYourUniversity.Data.Common.Models;
+
     public class Application : DeletableEntity
     {
         public Application()

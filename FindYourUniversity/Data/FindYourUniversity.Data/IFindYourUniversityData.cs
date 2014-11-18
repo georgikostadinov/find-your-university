@@ -1,13 +1,8 @@
-﻿using FindYourUniversity.Data.Common.Repository;
-using FindYourUniversity.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FindYourUniversity.Data
+﻿namespace FindYourUniversity.Data
 {
+    using FindYourUniversity.Data.Common.Repository;
+    using FindYourUniversity.Data.Models;
+
     public interface IFindYourUniversityData
     {
         IFindYourUniversityDbContext Context { get; }
