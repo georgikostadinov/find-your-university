@@ -2,11 +2,11 @@
 
 <h1 class="text-center text-muted">Лични данни</h1>
 <hr />
-
 <div class="row">
     <div class="col-md-4 col-md-offset-1">
         @using (Html.BeginForm("Update", "StudentProfile", FormMethod.Post, new { @class = "form" }))
         {
+            @Html.AntiForgeryToken()
 
             <div class="form-group">
                 @Html.LabelFor(s => s.StudentInfo.FirstName, "Първо име")
@@ -60,13 +60,6 @@
                 @Html.LabelFor(s => s.ContactInfo.Website, "Уебсайт")
                 @Html.EditorFor(s => s.ContactInfo.Website)
             </div>
-
-            @*foreach (var document in Model.ImageDocuments)
-                {
-                     <span>Тип на документа - @document.ApplicationDocumentType.Name</span>
-                        @Html.Raw("<img src=\"data:image/jpeg;base64," + @Convert.ToBase64String(document.Image) + "\" width='350' />");
-                }*@
-
             <input type="submit" class="btn btn-default" value="Обнови" />
         }
     </div>

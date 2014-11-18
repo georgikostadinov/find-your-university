@@ -8,20 +8,20 @@
     {
         UpdateTargetId="universities",
         InsertionMode = InsertionMode.Replace
-    })
+    }, new { @class = "btn btn-primary" })
 @Ajax.ActionLink("По град", "GroupedByCity", "Universities",
     new AjaxOptions()
     {
         UpdateTargetId = "universities",
         InsertionMode = InsertionMode.Replace
-    })
+    }, new { @class = "btn btn-primary" })
 
 @Ajax.ActionLink("По дисциплини", "GroupedByFaculty", "Universities",
     new AjaxOptions()
     {
         UpdateTargetId = "universities",
         InsertionMode = InsertionMode.Replace
-    })
+    }, new { @class="btn btn-primary" })
 
 <div id="universities">@Html.Action("GroupedByName")</div>
 

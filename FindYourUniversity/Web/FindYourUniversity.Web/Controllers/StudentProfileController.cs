@@ -49,6 +49,8 @@
             return View(studentModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Update(StudentViewModel model)
         {
             if (model != null && ModelState.IsValid)

@@ -79,7 +79,7 @@
         public ActionResult Details(string id)
         {
             var university = this.Data.Universities.GetById(id);
-            // TODO: Message if not fount
+            // TODO: Message if not found
             var model = Mapper.Map<University, UniversityDetailsViewModel>(university);
             return View(model);
         }
