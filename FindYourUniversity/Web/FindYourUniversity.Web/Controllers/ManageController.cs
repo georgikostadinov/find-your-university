@@ -11,6 +11,7 @@
 
     using FindYourUniversity.Web.Models;
     using FindYourUniversity.Data.Models;
+
     [Authorize]
     public class ManageController : Controller
     {

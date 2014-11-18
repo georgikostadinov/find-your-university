@@ -51,11 +51,14 @@
 
         public ActionResult Update(StudentViewModel model)
         {
-            var student = this.Data.Students.GetById(this.CurrentUser.Id);
-            model.ImageDocuments = student.ImageDocuments;
-            Mapper.Map<StudentViewModel, Student>(model, student);
-            this.Data.Students.Update(student);
-            this.Data.SaveChanges();
+            if (model != null && ModelState.IsValid)
+            {
+                var student = this.Data.Students.GetById(this.CurrentUser.Id);
+                model.ImageDocuments = student.ImageDocuments;
+                Mapper.Map<StudentViewModel, Student>(model, student);
+                this.Data.Students.Update(student);
+                this.Data.SaveChanges();
+            }
 
             return RedirectToAction("Index");
         }
@@ -100,28 +103,31 @@
 
         public ActionResult Upload(IEnumerable<DocumentImageViewModel> images)
         {
-            Session.Remove("requestedDocumentFieldsCount");
-            var student = this.Data.Students.GetById(this.CurrentUser.Id);
-
-            foreach (var image in images)
+            if (images != null && ModelState.IsValid)
             {
-                byte[] imageData = null;
-                if (image.Image != null)
+                Session.Remove("requestedDocumentFieldsCount");
+                var student = this.Data.Students.GetById(this.CurrentUser.Id);
+
+                foreach (var image in images)
                 {
-                    using (var binaryReader = new BinaryReader(image.Image.InputStream))
+                    byte[] imageData = null;
+                    if (image.Image != null)
                     {
-                        imageData = binaryReader.ReadBytes(image.Image.ContentLength);
+                        using (var binaryReader = new BinaryReader(image.Image.InputStream))
+                        {
+                            imageData = binaryReader.ReadBytes(image.Image.ContentLength);
+                        }
+                        student.ImageDocuments.Add(new ImageDocument()
+                        {
+                            ApplicationDocumentTypeId = image.DocumentTypeId,
+                            Image = imageData
+                        });
                     }
-                    student.ImageDocuments.Add(new ImageDocument()
-                    {
-                        ApplicationDocumentTypeId = image.DocumentTypeId,
-                        Image = imageData
-                    });
+
                 }
 
+                this.Data.SaveChanges();
             }
-
-            this.Data.SaveChanges();
             return RedirectToAction("Index");
         }
     }
