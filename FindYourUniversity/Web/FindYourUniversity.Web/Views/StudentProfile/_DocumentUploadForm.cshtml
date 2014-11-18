@@ -1,7 +1,13 @@
 ﻿@model  IEnumerable<SelectListItem>
 
-@Html.DropDownList("[" + TempData["count"] + "].DocumentTypeId",Model, "Изберете вид на документа")
+<div class="row">
+    <div class="col-md-3">
+        @Html.DropDownList("[" + TempData["count"] + "].DocumentTypeId", Model, "Изберете вид на документа", new { @class = "form-control" })
 
-@(Html.Kendo().Upload().Name("[" + TempData["count"] + "].Image"))
+        @(Html.Kendo().Upload().Name("[" + TempData["count"] + "].Image"))
+    </div>
+    <br />
+    <br />
+    <br />
+</div>
 
-@*<input type="text" name="@("[" + Model + "].DocumentTypeId")" />*@

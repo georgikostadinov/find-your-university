@@ -7,7 +7,7 @@
         @Html.Raw("<img src=\"data:image/jpeg;base64," + @Convert.ToBase64String(document.Image) + "\" width='350' />")
         @Ajax.ActionLink("Изтрий", "DeleteById", "DocumentImages",
         new { id = document.Id },
-            new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = ("documentId" + document.Id) });
+            new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = ("documentId" + document.Id) })
     </div>
 }
 

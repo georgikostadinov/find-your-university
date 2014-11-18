@@ -4,17 +4,7 @@
 <hr />
 
 <div class="row">
-    <div class="col-md-4">
-        @if (Model.PictureUrl == null)
-        {
-            <img src="~/Images/default.jpg" width="250" alt="profile-image" class="img-thumbnail" />
-        }
-        else
-        {
-            <img src="@Model.PictureUrl" width="250" alt="profile-image" class="img-thumbnail" />
-        }
-    </div>
-    <div class="col-md-4">
+    <div class="col-md-4 col-md-offset-1">
         @using (Html.BeginForm("Update", "StudentProfile", FormMethod.Post, new { @class = "form" }))
         {
 
@@ -50,7 +40,7 @@
         .DataValueField("CityId")
         .DataSource(source => source.Read(read => read.Action("GetCities", "StudentProfile"))))
             </div>
-            
+
             <div class="form-group">
                 @Html.LabelFor(s => s.ContactInfo.Address, "Адрес")
                 @Html.EditorFor(s => s.ContactInfo.Address)
@@ -71,8 +61,6 @@
                 @Html.EditorFor(s => s.ContactInfo.Website)
             </div>
 
-            @Html.Partial("_DocumentsEditor", Model.ImageDocuments)
-
             @*foreach (var document in Model.ImageDocuments)
                 {
                      <span>Тип на документа - @document.ApplicationDocumentType.Name</span>
@@ -82,5 +70,16 @@
             <input type="submit" class="btn btn-default" value="Обнови" />
         }
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4 col-md-offset-2">
+        @if (Model.ImageDocuments.Count == 0)
+        {
+            <p class="text-muted">Все още нямате качени документи</p>
+            @Html.ActionLink("Качете документи", "DocumentsUpload", "StudentProfile", null, new { @class = "btn btn-primary" })
+        }
+        else
+        {
+            @Html.Partial("_DocumentsEditor", Model.ImageDocuments)
+            @Html.ActionLink("Качване на други документи", "DocumentsUpload", "StudentProfile", null, new { @class = "btn btn-primary" })
+        }
+    </div>
 </div>

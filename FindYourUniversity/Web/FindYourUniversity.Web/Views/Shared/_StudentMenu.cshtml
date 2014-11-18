@@ -3,5 +3,5 @@
 
 @if (Request.IsAuthenticated && User.IsInRole("Student"))
 {
-    
+    <li class="@Html.IsSelected(controller: "StudentProfile", action: "Index")">@Html.ActionLink("Профил", "Index", "StudentProfile", new { area = string.Empty }, null)</li>
 }

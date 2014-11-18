@@ -14,10 +14,11 @@
         }
 
         public ActionResult Index()
-        {            
+        {
             return View();
         }
 
+        [OutputCache(Duration = 10 * 60)]
         public ActionResult UniversitiesSlider()
         {
             var universities = this.Data.Universities.All().Take(3).Select(u => new UniversitySliderViewModel()

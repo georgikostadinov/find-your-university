@@ -30,7 +30,7 @@
                     <li class="@Html.IsSelected(controller:"Home", action: "Index")">@Html.ActionLink("Начало", "Index", "Home", new { area=string.Empty }, null)</li>
                     <li class="@Html.IsSelected(controller:"Home", action: "Contact")">@Html.ActionLink("Контакти", "Contact", "Home", new { area = string.Empty }, null)</li>
                     <li class="@Html.IsSelected(controller: "Universities", action: "Index")">@Html.ActionLink("Университети", "Index", "Universities", new { area=string.Empty }, null)</li>
-                    <li class="@Html.IsSelected(controller: "Students", action: "Index")">@Html.ActionLink("Студенти", "Index", "Students", new { area = string.Empty }, null)</li>
+                    
                     @Html.Partial("_UniversityMenu")
                     @Html.Partial("_StudentMenu")
                 </ul>
