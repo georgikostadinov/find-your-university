@@ -22,6 +22,6 @@ namespace FindYourUniversity.Data.Models
         public virtual Faculty Faculty { get; set; }
         public string UniversityId { get; set; }
         public virtual University University { get; set; }
-        public ICollection<Course> Courses { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
     }
 }

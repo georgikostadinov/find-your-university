@@ -211,6 +211,7 @@
     <Compile Include="Controllers\FacultiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProgrammesController.cs" />
     <Compile Include="Controllers\StudentProfileController.cs" />
     <Compile Include="Controllers\UniversitiesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -221,9 +222,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationDocumentTypeViewModel.cs" />
+    <Compile Include="ViewModels\CourseViewModel.cs" />
     <Compile Include="ViewModels\DocumentImageViewModel.cs" />
     <Compile Include="ViewModels\FacultyLinkViewModel.cs" />
     <Compile Include="ViewModels\ProgrammeLinkViewModel.cs" />
+    <Compile Include="ViewModels\ProgrammeViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\UniversitiesGroupedByCityViewModel.cs" />
     <Compile Include="ViewModels\UniversitiesGroupedByFacultyViewModel.cs" />
@@ -1333,6 +1336,7 @@
     <Content Include="Views\Home\_UniversitiesSlider.cshtml" />
     <Content Include="Views\Universities\Details.cshtml" />
     <Content Include="Views\Faculties\_FacultyProgrammesPartial.cshtml" />
+    <Content Include="Views\Programmes\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

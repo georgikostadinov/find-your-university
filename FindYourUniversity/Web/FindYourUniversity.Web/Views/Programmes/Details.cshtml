@@ -1,0 +1,60 @@
+﻿@model FindYourUniversity.Web.ViewModels.ProgrammeViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2 class="text-center">@Model.University</h2>
+        <h3 class="text-center">@Model.Faculty факултет</h3>
+        <h4 class="text-center">@Model.Degree</h4>
+    </div>
+    <div class="col-md-2">
+        @if (Model.CanApply)
+        {
+            if (Model.HasApplied)
+            {
+                <button disabled="disabled">Вече сте кандидатствали за тази специалност</button>
+            }
+            else
+            {
+                @Html.ActionLink("Кандидатствай", "Apply", "Applications", new { }, new { @class="btn btn-lg btn-primary" })
+            }
+        }
+    </div>
+</div>
+<hr />
+<h1 class="text-center text-muted">Специалност "@Model.Name"</h1>
+
+<hr />
+<p class="text-muted">@Model.Description</p>
+<br />
+
+@(Html.Kendo()
+    .Grid<FindYourUniversity.Web.ViewModels.CourseViewModel>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.Semester);
+        columns.Bound(p => p.Credits);
+        columns.Bound(p => p.Hours);
+    })
+    .Filterable()
+    .Groupable()
+    .Sortable()
+    .Resizable(c => c.Columns(true))
+    .Pageable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Model(model =>
+        {
+            model.Id(p => p.Id);
+        })
+        .Read(read => read.Action("GetCoursesByProgramme", "Programmes", new { programmeId = Model.Id }))
+        .Group(group => group.Add(col => col.Semester)))
+)
+
+
+
+

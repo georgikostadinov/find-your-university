@@ -21,7 +21,8 @@ namespace FindYourUniversity.Data.Models
         public virtual Student Student { get; set; }
         public string UniversityId { get; set; }
         public virtual University University { get; set; }
-        public DateTime DateCreated { get; set; }
+        public int ProgrammeId { get; set; }
+        public virtual Programme Programme{ get; set; }
         public virtual StudentApplicationDetails Details { get; set; }
         public virtual ICollection<StudentApplicationDocument> Documents { get; set; }
     }
