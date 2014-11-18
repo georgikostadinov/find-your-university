@@ -112,7 +112,7 @@ namespace FindYourUniversity.Web.Controllers
                     {
                         imageData = binaryReader.ReadBytes(image.Image.ContentLength);
                     }
-                    student.ImageDocuments.Add(new DocumentImage()
+                    student.ImageDocuments.Add(new ImageDocument()
                     {
                         ApplicationDocumentTypeId = image.DocumentTypeId,
                         Image = imageData

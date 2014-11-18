@@ -33,7 +33,7 @@
         public IDbSet<Student> Students { get; set; }
         public IDbSet<University> Universities { get; set; }
         public IDbSet<ApplicationDocumentType> ApplicationDocumentTypes { get; set; }
-        public IDbSet<DocumentImage> DocumentImages { get; set; }
+        public IDbSet<ImageDocument> DocumentImages { get; set; }
 
         public static FindYourUniversityDbContext Create()
         {

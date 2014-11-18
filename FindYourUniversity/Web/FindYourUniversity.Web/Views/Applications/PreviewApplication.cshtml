@@ -1,0 +1,39 @@
+﻿@model FindYourUniversity.Web.ViewModels.ApplicationPreviewViewModel
+@{
+    ViewBag.Title = "PreviewApplication";
+}
+
+<h2 class="text-center">Кандидатстване за специалност "@Model.ProgrammeName"</h2>
+<h3 class="text-center">@Model.UniversityName</h3>
+
+@Html.LabelFor(a=>a.FirstName)
+@Html.DisplayFor(a=>a.FirstName)
+<hr />
+@Html.LabelFor(a => a.SecondName)
+@Html.DisplayFor(a => a.SecondName)
+<hr />
+@Html.LabelFor(a => a.LastName)
+@Html.DisplayFor(a => a.LastName)
+<hr />
+@Html.LabelFor(a => a.BirthDate)
+@Html.DisplayFor(a => a.BirthDate)
+<hr />
+@Html.LabelFor(a => a.City)
+@Html.DisplayFor(a => a.City)
+<hr />
+@Html.LabelFor(a => a.Address)
+@Html.DisplayFor(a => a.Address)
+<hr />
+@Html.LabelFor(a => a.School)
+@Html.DisplayFor(a => a.School)
+<hr />
+@Html.LabelFor(a => a.Telephone)
+@Html.DisplayFor(a => a.Telephone)
+<hr />
+@Html.LabelFor(a => a.Email)
+@Html.DisplayFor(a => a.Email)
+<hr />
+
+<button class="btn btn-danger">Потвърди</button>
+<button class="btn btn-default">Откажи</button>
+

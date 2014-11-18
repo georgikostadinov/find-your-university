@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FindYourUniversity.Data.Models
 {
-    public class DocumentImage : DeletableEntity
+    public class ImageDocument : DeletableEntity
     {
         public int Id { get; set; }
         public byte[] Image { get; set; }

@@ -124,9 +124,9 @@ namespace FindYourUniversity.Data
         {
             get { return this.GetDeletableEntityRepository<ApplicationDocumentType>(); }
         }
-        public IDeletableEntityRepository<DocumentImage> DocumentImages
+        public IDeletableEntityRepository<ImageDocument> DocumentImages
         {
-            get { return this.GetDeletableEntityRepository<DocumentImage>(); }
+            get { return this.GetDeletableEntityRepository<ImageDocument>(); }
         }
 
         public int SaveChanges()

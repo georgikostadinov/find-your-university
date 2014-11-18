@@ -27,7 +27,7 @@ namespace FindYourUniversity.Data
         IDeletableEntityRepository<Student> Students { get; }
         IDeletableEntityRepository<University> Universities { get; }
         IDeletableEntityRepository<ApplicationDocumentType> ApplicationDocumentTypes { get; }
-        IDeletableEntityRepository<DocumentImage> DocumentImages { get; }
+        IDeletableEntityRepository<ImageDocument> DocumentImages { get; }
 
         int SaveChanges();
     }
