@@ -1,11 +1,8 @@
-﻿using FindYourUniversity.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace FindYourUniversity.Web.ViewModels
+﻿namespace FindYourUniversity.Web.ViewModels
 {
+    using System;
+    using System.Collections.Generic;
+
     public class ApplicationPreviewViewModel
     {
         public ApplicationPreviewViewModel()

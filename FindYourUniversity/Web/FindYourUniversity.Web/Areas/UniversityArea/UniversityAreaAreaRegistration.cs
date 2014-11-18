@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace FindYourUniversity.Web.Areas.UniversityArea
+﻿namespace FindYourUniversity.Web.Areas.UniversityArea
 {
+    using System.Web.Mvc;
+
     public class UniversityAreaAreaRegistration : AreaRegistration 
     {
         public override string AreaName 

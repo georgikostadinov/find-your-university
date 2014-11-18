@@ -1,16 +1,16 @@
-﻿using AutoMapper;
-using FindYourUniversity.Data;
-using FindYourUniversity.Data.Models;
-using FindYourUniversity.Web.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.IO;
-
-namespace FindYourUniversity.Web.Controllers
+﻿namespace FindYourUniversity.Web.Controllers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+    using System.IO;
+
+    using AutoMapper;
+
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Data.Models;
+    using FindYourUniversity.Web.ViewModels;
+
     public class StudentProfileController : BaseController
     {
         public StudentProfileController(IFindYourUniversityData data)

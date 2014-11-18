@@ -1,14 +1,14 @@
-﻿using AutoMapper;
-using FindYourUniversity.Data.Models;
-using FindYourUniversity.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMapper.QueryableExtensions;
-
-namespace FindYourUniversity.Web.ViewModels
+﻿namespace FindYourUniversity.Web.ViewModels
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+
+    using FindYourUniversity.Data.Models;
+    using FindYourUniversity.Web.Infrastructure.Mapping;
+
     public class UniversityDetailsViewModel : IMapFrom<University>, IHaveCustomMappings
     {
         public string Id { get; set; }

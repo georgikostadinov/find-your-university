@@ -1,15 +1,14 @@
-﻿using AutoMapper;
-using FindYourUniversity.Data;
-using FindYourUniversity.Data.Models;
-using FindYourUniversity.Web.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace FindYourUniversity.Web.Controllers
+﻿namespace FindYourUniversity.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper;
+    
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Data.Models;
+    using FindYourUniversity.Web.ViewModels;
+
     public class UniversitiesController : BaseController
     {
         public UniversitiesController(IFindYourUniversityData data)

@@ -1,13 +1,12 @@
-﻿using AutoMapper;
-using FindYourUniversity.Data.Models;
-using FindYourUniversity.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace FindYourUniversity.Web.ViewModels
+﻿namespace FindYourUniversity.Web.ViewModels
 {
+    using System.Collections.Generic;
+
+    using AutoMapper;
+
+    using FindYourUniversity.Data.Models;
+    using FindYourUniversity.Web.Infrastructure.Mapping;
+
     public class StudentViewModel : IMapFrom<Student>, IHaveCustomMappings
     {
         public StudentViewModel()

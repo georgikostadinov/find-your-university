@@ -1,16 +1,11 @@
-﻿using FindYourUniversity.Data.Common.Repository;
-using FindYourUniversity.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper.QueryableExtensions;
-using FindYourUniversity.Data;
-using FindYourUniversity.Web.ViewModels;
-
-namespace FindYourUniversity.Web.Controllers
+﻿namespace FindYourUniversity.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Web.ViewModels;
+
     public class HomeController : BaseController
     {
         public HomeController(IFindYourUniversityData data)

@@ -1,12 +1,9 @@
-﻿using FindYourUniversity.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace FindYourUniversity.Web.Controllers
+﻿namespace FindYourUniversity.Web.Controllers
 {
+    using System.Web.Mvc;
+
+    using FindYourUniversity.Data;
+
     public class DocumentImagesController : BaseController
     {
         public DocumentImagesController(IFindYourUniversityData data)
@@ -20,6 +17,5 @@ namespace FindYourUniversity.Web.Controllers
             this.Data.SaveChanges();
             return null;
         }
-
     }
 }

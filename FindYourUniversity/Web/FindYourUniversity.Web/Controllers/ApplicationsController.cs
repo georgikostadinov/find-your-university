@@ -1,14 +1,14 @@
-﻿using FindYourUniversity.Data;
-using FindYourUniversity.Web.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-
-namespace FindYourUniversity.Web.Controllers
+﻿namespace FindYourUniversity.Web.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using Microsoft.AspNet.Identity;
+
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Web.ViewModels;
+
     public class ApplicationsController : BaseController
     {
         public ApplicationsController(IFindYourUniversityData data) : base(data)
