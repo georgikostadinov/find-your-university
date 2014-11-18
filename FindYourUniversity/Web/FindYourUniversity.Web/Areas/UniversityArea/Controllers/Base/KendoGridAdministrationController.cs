@@ -1,19 +1,18 @@
-﻿using FindYourUniversity.Data;
-using Kendo.Mvc.UI;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Kendo.Mvc.Extensions;
-using AutoMapper;
-using System.Data.Entity;
-using FindYourUniversity.Data.Common.Models;
-using FindYourUniversity.Web.Areas.UniversityArea.ViewModels.Base;
-
-namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base
+﻿namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base
 {
+    using System.Data.Entity;
+    using System.Collections;
+    using System.Web.Mvc;
+
+    using AutoMapper;
+
+    using Kendo.Mvc.UI;
+    using Kendo.Mvc.Extensions;
+
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Data.Common.Models;
+    using FindYourUniversity.Web.Areas.UniversityArea.ViewModels.Base;
+
     public abstract class KendoGridAdministrationController : UniversityBaseController
     {
         public KendoGridAdministrationController(IFindYourUniversityData data)

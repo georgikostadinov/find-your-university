@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Kendo.Mvc.UI;
-using Kendo.Mvc.Extensions;
-using FindYourUniversity.Data;
-using AutoMapper;
-using FindYourUniversity.Data.Models;
-using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
-using FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base;
-using System.Collections;
-using AutoMapper.QueryableExtensions;
-
-namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
+﻿namespace FindYourUniversity.Web.Areas.UniversityArea.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+
+    using Kendo.Mvc.UI;
+    using Kendo.Mvc.Extensions;
+
+    using FindYourUniversity.Data;
+    using FindYourUniversity.Data.Models;
+    using FindYourUniversity.Web.Areas.UniversityArea.ViewModels;
+    using FindYourUniversity.Web.Areas.UniversityArea.Controllers.Base;
+
     public class FacultiesController : UniversityBaseController
     {
         public FacultiesController(IFindYourUniversityData data)
