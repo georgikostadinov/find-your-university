@@ -1341,6 +1341,7 @@
     <Content Include="Views\Faculties\_FacultyProgrammesPartial.cshtml" />
     <Content Include="Views\Programmes\Details.cshtml" />
     <Content Include="Views\Applications\PreviewApplication.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
